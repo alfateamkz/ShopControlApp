@@ -1,0 +1,81 @@
+﻿<Window x:Class="ShopControlApp.DiscontCards.DiscontCards"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopControlApp.DiscontCards"
+               xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
+        Title="Дисконтные карты" Height="472.817" Width="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadTable}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid Style="{DynamicResource GridBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="235*"/>
+            <ColumnDefinition Width="557*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Style="{DynamicResource DGBackground}" HorizontalAlignment="Left" Height="415" VerticalAlignment="Top" Width="792" Grid.Column="0" Margin="0,27,0,0" ItemsSource="{Binding DiscontCards}" Grid.ColumnSpan="2"/>
+        <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="814" Margin="0,0,-22,0" Grid.ColumnSpan="2">
+            <MenuItem Header="Добавить" FontSize="16" Style="{DynamicResource MenuItemStyle}"    Click="DCInsert"></MenuItem>
+            <MenuItem Header="Удалить" FontSize="16" Style="{DynamicResource MenuItemStyle}"  Click="DCDelete"></MenuItem>
+            <MenuItem Header="Изменить" FontSize="16" Style="{DynamicResource MenuItemStyle}"  Click="DCUpdate"></MenuItem>
+            <MenuItem Header="Сортировать" Style="{DynamicResource MenuItemStyle}"  FontSize="16">
+                <MenuItem Header="По проценту карты" FontSize="16">
+                    <MenuItem Header="От наименьшего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="percentageAcs" FontSize="16"></MenuItem>
+                    <MenuItem Header="От наибольшего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="percentageDecs"  FontSize="16"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="По сумме" Style="{DynamicResource MenuItemStyle}"  FontSize="16">
+                    <MenuItem Header="От наименьшего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="SumAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="От наибольшего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="SumDesc" FontSize="16"></MenuItem>
+                </MenuItem>
+
+            </MenuItem>
+            <MenuItem Header="Поиск" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="По сумме" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="От" Style="{DynamicResource MenuItemStyle}">
+                        <MenuItem Style="{DynamicResource MenuItemStyle}">
+                            <MenuItem.Header>
+                                <TextBox TextChanged="searchBySumAsc" Text="{Binding DiscontCardPercentage,Mode=OneWayToSource}">
+                                   <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                          <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                </TextBox>
+                            </MenuItem.Header>
+                            
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="До" Style="{DynamicResource MenuItemStyle}">
+                        <MenuItem Style="{DynamicResource MenuItemStyle}">
+                            <MenuItem.Header>
+                                <TextBlock/>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="По проценту карты" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="От" Style="{DynamicResource MenuItemStyle}">
+                        <MenuItem Style="{DynamicResource MenuItemStyle}">
+                            <MenuItem.Header>
+                                <TextBlock/>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="До" Style="{DynamicResource MenuItemStyle}">
+                        <MenuItem Style="{DynamicResource MenuItemStyle}">
+                            <MenuItem.Header>
+                                <TextBlock/>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="ShopControlApp.DiscontCards.DiscontCardsDelete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopControlApp.DiscontCards"
+        mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
+     Title="Удаление дисконтной карты" Height="164.789" Width="284.085" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Style="{DynamicResource GridBackground}">
+        <TextBox HorizontalAlignment="Left" x:Name="idTB" Height="32" FontSize="18" Margin="177,32,0,0" TextWrapping="Wrap" Text="{Binding DiscontCardID,Mode=TwoWay}"  VerticalAlignment="Top" Width="79"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,23,0,0"  FontSize="18"  TextWrapping="Wrap" VerticalAlignment="Top">
+           <Run >ID карты</Run>
+            <LineBreak></LineBreak>
+            <Run>для удаления</Run>
+        </TextBlock>
+        <Button Content="Удалить"   Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left"  Command="{Binding DeleteCommand}"  FontSize="18" Margin="21,91,0,0" VerticalAlignment="Top" Width="235"/>
+
+    </Grid>
+</Window>

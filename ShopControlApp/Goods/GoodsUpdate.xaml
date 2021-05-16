@@ -1,0 +1,49 @@
+﻿<Window x:Class="ShopControlApp.Goods.GoodsUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopControlApp.Goods"
+        mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
+                xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Title="Редактирование данных о товаре" Height="336.084" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadTable}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadManufacturersID}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid  Style="{DynamicResource GridBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="219*"/>
+            <ColumnDefinition Width="211*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,30,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Товар" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" x:Name="idTB" Height="32" FontSize="18" Margin="0.254,30,0,0"   VerticalAlignment="Top" Width="202" Grid.Column="1"
+                   SelectedItem="{Binding  SelectedGood,Mode=OneWayToSource}" ItemsSource="{Binding Goods}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            
+        </ComboBox>
+        <Button Style="{DynamicResource ButtonStyle}" Content="Изменить данные" HorizontalAlignment="Left" Command="{Binding UpdateCommand}"   FontSize="18" Margin="27,264,0,0" VerticalAlignment="Top" Width="378" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" x:Name="titleTB" Height="32" FontSize="18" Margin="218,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2"
+            Text="{Binding GoodsTitle, Mode=TwoWay}"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="20,74,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="priceTB" Height="32" FontSize="18" Margin="218,115,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2"
+            Text="{Binding GoodsPrice, Mode=TwoWay}"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="20,115,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="warrantyTB" Height="32" FontSize="18" Margin="218,161,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2"
+            Text="{Binding GoodsWarranty, Mode=TwoWay}"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="20,161,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Срок гарантии" VerticalAlignment="Top"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="20,205,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Производитель" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" x:Name="manufacturerLB" Height="35" Margin="218,205,0,0" FontSize="18"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2"
+            ItemsSource="{Binding Manufacturers, Mode=TwoWay}" SelectedItem="{Binding GoodsManufacturer, Mode=OneWayToSource}">
+        </ComboBox>
+
+    </Grid>
+</Window>

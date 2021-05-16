@@ -1,0 +1,47 @@
+﻿<Window x:Class="ShopControlApp.Goods.GoodsInsert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopControlApp.Goods"
+            xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
+         Title="Добавление товара" Height="275.494" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadManufacturersID}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid  Style="{DynamicResource GridBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="164*"/>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="211*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox HorizontalAlignment="Left" x:Name="titleTB" Height="32" FontSize="18" Margin="50.378,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2" Grid.Column="1"
+                 Text="{Binding GoodsTitle,Mode=TwoWay}"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="16,15,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="priceTB" Height="32" FontSize="18" Margin="50.378,56,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2" Grid.Column="1"
+                 Text="{Binding GoodsPrice,Mode=TwoWay}"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="16,56,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top"/>
+        <TextBox  HorizontalAlignment="Left" x:Name="warrantyTB" Height="32" FontSize="18" Margin="50.378,102,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2" Grid.Column="1"
+                 Text="{Binding GoodsWarranty,Mode=TwoWay}"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="16,102,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Срок гарантии" VerticalAlignment="Top"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="16,146,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Производитель" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" x:Name="manufacturerLB" Height="35" Margin="50.378,146,0,0" FontSize="18"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2" Grid.Column="1"
+                 ItemsSource="{Binding Manufacturers, Mode=TwoWay}" SelectedItem="{Binding GoodsManufacturer, Mode=OneWayToSource}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button Style="{DynamicResource ButtonStyle}" Content="Добавить товар" HorizontalAlignment="Left"    FontSize="18" Margin="22,208,0,0" VerticalAlignment="Top" Width="378" Grid.ColumnSpan="3"
+                CommandParameter="{Binding GoodsManufacturerID}" Command="{Binding InsertCommand}"/>
+
+    </Grid>
+</Window>

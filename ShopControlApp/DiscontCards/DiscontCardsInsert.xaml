@@ -1,0 +1,16 @@
+﻿<Window x:Class="ShopControlApp.DiscontCards.DiscontCardsInsert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopControlApp.DiscontCards"
+        mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
+       Title="Создание дисконтной карты" Height="136.515" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Style="{DynamicResource GridBackground}">
+
+        <TextBox HorizontalAlignment="Left" x:Name="phoneTB" Height="32" FontSize="18" Margin="219,25,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" Text="{Binding DiscontCardPhone,Mode=TwoWay}"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,25,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Телефон" VerticalAlignment="Top"/>
+        <Button Content="Создать карту"   Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left"    FontSize="18" Margin="21,69,0,0" VerticalAlignment="Top" Width="399" Command="{Binding InsertCommand}"/>
+        
+    </Grid>
+</Window>

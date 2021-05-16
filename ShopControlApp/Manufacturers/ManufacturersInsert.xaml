@@ -1,0 +1,19 @@
+﻿<Window x:Class="ShopControlApp.Manufacturers.ManufacturersInsert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopControlApp.Manufacturers"
+        mc:Ignorable="d" Style="{DynamicResource WindowColor}"
+     Title="Добавление производителя" Height="239.915" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Style="{DynamicResource GridBackground}">
+
+        <TextBox HorizontalAlignment="Left" x:Name="titleTB" Height="32" FontSize="18" Margin="219,25,0,0" TextWrapping="Wrap" Text="{Binding ManufacturerTitle,Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>
+        <TextBlock HorizontalAlignment="Left" Style="{DynamicResource TextColor}"  Margin="21,25,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="countryTB" Height="32" FontSize="18" Margin="219,66,0,0" TextWrapping="Wrap" Text="{Binding  ManufacturerCountry,Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>
+        <TextBlock HorizontalAlignment="Left" Style="{DynamicResource TextColor}"  Margin="21,66,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Страна" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="cityTB" Height="32" FontSize="18" Margin="219,112,0,0" TextWrapping="Wrap" Text="{Binding  ManufacturerCity,Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>
+        <TextBlock HorizontalAlignment="Left" Style="{DynamicResource TextColor}"  Margin="21,112,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Город" VerticalAlignment="Top"/>
+        <Button Content="Добавить производителя" HorizontalAlignment="Left"  Style="{DynamicResource ButtonStyle}"   FontSize="18" Margin="21,164,0,0" VerticalAlignment="Top" Width="399" Command="{Binding InsertCommand}"/>
+    </Grid>
+</Window>

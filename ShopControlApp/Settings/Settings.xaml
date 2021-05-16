@@ -1,0 +1,31 @@
+﻿<Window x:Class="ShopControlApp.Settings.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopControlApp.Settings"
+        mc:Ignorable="d" Style="{DynamicResource WindowColor}"
+        Title="Настройки" Height="401.831" Width="516.056" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow">
+    <Grid Style="{DynamicResource GridBackground}">
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,10,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Темы" VerticalAlignment="Top" Height="24" Width="255"/>
+        <Button Content="Светлая"  Style="{DynamicResource ButtonStyle}"  FontSize="16" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="ThemeLight"/>
+        <Button Content="Тёмная" Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="175,39,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="ThemeDark"/>
+        <Button Content="Синяя"  Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="340,39,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="ThemeBlue"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Style="{DynamicResource TextColor}" Margin="10,87,0,0" TextWrapping="Wrap" Text="Настройка по вкусу" VerticalAlignment="Top" Height="24" Width="255"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16"  Style="{DynamicResource TextColor}" Margin="10,116,0,0" TextWrapping="Wrap" Text="Цвет текста в кнопках" VerticalAlignment="Top" Height="24" Width="187"/>
+        <ComboBox x:Name="buttonTextCB" HorizontalAlignment="Left" FontSize="16" Margin="197,115,0,0" VerticalAlignment="Top" Width="120" />
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,146,0,0"   Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Цвет кнопок" VerticalAlignment="Top" Height="24" Width="187"/>
+        <ComboBox x:Name="buttonBgCB" HorizontalAlignment="Left" FontSize="16" Margin="197,145,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,176,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Цвет заднего фона" VerticalAlignment="Top" Height="24" Width="187"/>
+        <ComboBox x:Name="BgCB" HorizontalAlignment="Left" FontSize="16" Margin="197,175,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,206,0,0"   Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Цвет текста" VerticalAlignment="Top" Height="24" Width="187"/>
+        <ComboBox x:Name="TextCB" HorizontalAlignment="Left" FontSize="16" Margin="197,205,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,238,0,0" Style="{DynamicResource TextColor}"  TextWrapping="Wrap" Text="Цвет окна" VerticalAlignment="Top" Height="24" Width="187"/>
+        <ComboBox x:Name="BorderCB" HorizontalAlignment="Left" FontSize="16" Margin="197,237,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="356,87,0,0" Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Язык" VerticalAlignment="Top" Height="24" Width="255"/>
+        <ComboBox x:Name="languageCB" HorizontalAlignment="Left" FontSize="16" Margin="356,116,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Сохранить изменения"  Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="10,320,0,0" Click="SaveChanges" VerticalAlignment="Top" Width="255" Height="43"/>
+        <Button  Content="Выйти без сохранения"   Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="270,320,0,0" Click="Exit" VerticalAlignment="Top" Width="230" Height="43"/>
+
+    </Grid>
+</Window>
