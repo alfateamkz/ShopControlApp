@@ -45,7 +45,9 @@ namespace ShopControlApp.Sellers
             SellersUpdate f = new SellersUpdate();
             f.ShowDialog();
         }
-
+        /// <summary>
+        /// Обновление контекста для сортировки
+        /// </summary>
         private void birthAsc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers,
@@ -116,6 +118,44 @@ ApplicationViewModel.FilterAction.ByPosition, ApplicationViewModel.FilterParamet
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers,
 ApplicationViewModel.FilterAction.ByPosition, ApplicationViewModel.FilterParameter.Acs);
+        }
+        /// <summary>
+        /// Обновление контекста для поиска в БД
+        /// </summary>
+        private void searchByDate(object sender, SelectionChangedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers,
+ApplicationViewModel.FilterAction.ByBirthDay, ApplicationViewModel.FilterParameter.Null);
+        }
+
+        private void searchByEmpDate(object sender, SelectionChangedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers,
+ApplicationViewModel.FilterAction.ByEmploymentDate, ApplicationViewModel.FilterParameter.Null);
+        }
+
+        private void searchByName(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers,
+ApplicationViewModel.FilterAction.ByName, ApplicationViewModel.FilterParameter.Null);
+        }
+
+        private void searchBySurname(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers,
+ApplicationViewModel.FilterAction.BySurname, ApplicationViewModel.FilterParameter.Null);
+        }
+
+        private void searchByPatronymic(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers,
+ApplicationViewModel.FilterAction.ByPatronymic, ApplicationViewModel.FilterParameter.Null);
+        }
+
+        private void searchByPosition(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers,
+ApplicationViewModel.FilterAction.ByPosition, ApplicationViewModel.FilterParameter.Null);
         }
     }
 }

@@ -38,10 +38,10 @@
                     <MenuItem Header="От" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
-                                <TextBox TextChanged="searchBySumAsc" Text="{Binding DiscontCardPercentage,Mode=OneWayToSource}">
+                                <TextBox Width="40" Text="{Binding DiscontCardSum,Mode=OneWayToSource}" GotFocus="searchBySumAsc">
                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="TextChanged">
-                                          <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                        <i:EventTrigger EventName="MouseLeave">
+                                            <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                                 </TextBox>
@@ -52,7 +52,13 @@
                     <MenuItem Header="До" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
-                                <TextBlock/>
+                                <TextBox Width="40" Text="{Binding DiscontCardSum,Mode=OneWayToSource}" GotFocus="searchBySumDesc">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeave">
+                                            <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
                             </MenuItem.Header>
                         </MenuItem>
                     </MenuItem>
@@ -61,20 +67,32 @@
                     <MenuItem Header="От" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
-                                <TextBlock/>
+                                <TextBox Width="40" Text="{Binding DiscontCardPercentage,Mode=OneWayToSource}" GotFocus="searchByPersentAsc">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeave">
+                                            <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
                             </MenuItem.Header>
                         </MenuItem>
                     </MenuItem>
                     <MenuItem Header="До" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
-                                <TextBlock/>
+                                <TextBox Width="40" Text="{Binding DiscontCardPercentage,Mode=OneWayToSource}" GotFocus="searchByPersentDesc">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeave">
+                                            <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
                             </MenuItem.Header>
                         </MenuItem>
                     </MenuItem>
                 </MenuItem>
-
             </MenuItem>
+            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
 
     </Grid>

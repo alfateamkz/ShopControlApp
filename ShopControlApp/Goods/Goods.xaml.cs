@@ -43,6 +43,9 @@ namespace ShopControlApp.Goods
             GoodsUpdate f = new GoodsUpdate(); f.ShowDialog();
         }
 
+        /// <summary>
+        /// Обновление контекста для сортировки
+        /// </summary>
         private void TitleAsc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
@@ -58,25 +61,53 @@ ApplicationViewModel.FilterAction.ByTitle, ApplicationViewModel.FilterParameter.
         private void WarrantyDesc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
-ApplicationViewModel.FilterAction.ByWarranty, ApplicationViewModel.FilterParameter.Acs);
+ApplicationViewModel.FilterAction.ByWarranty, ApplicationViewModel.FilterParameter.Decs);
         }
 
         private void WarrantyAsc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
-ApplicationViewModel.FilterAction.ByWarranty, ApplicationViewModel.FilterParameter.Decs);
+ApplicationViewModel.FilterAction.ByWarranty, ApplicationViewModel.FilterParameter.Acs);
         }
 
         private void PriceDesc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
-ApplicationViewModel.FilterAction.ByPrice, ApplicationViewModel.FilterParameter.Acs);
+ApplicationViewModel.FilterAction.ByPrice, ApplicationViewModel.FilterParameter.Decs);
         }
 
         private void PriceAsc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
+ApplicationViewModel.FilterAction.ByPrice, ApplicationViewModel.FilterParameter.Acs);
+        }
+
+
+        /// <summary>
+        /// Обновление контекста для поиска в БД
+        /// </summary>
+        private void searchByPriceAsc(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
+ApplicationViewModel.FilterAction.ByPrice, ApplicationViewModel.FilterParameter.Acs);
+        }
+
+        private void searchByPriceDesc(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
 ApplicationViewModel.FilterAction.ByPrice, ApplicationViewModel.FilterParameter.Decs);
+        }
+
+        private void searchByTitle(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
+ApplicationViewModel.FilterAction.ByTitle, ApplicationViewModel.FilterParameter.Null);
+        }
+
+        private void searchByWarranty(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods,
+ApplicationViewModel.FilterAction.ByWarranty, ApplicationViewModel.FilterParameter.Null);
         }
     }
 }

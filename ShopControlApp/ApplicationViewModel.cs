@@ -617,6 +617,19 @@ namespace ShopControlApp
                 OnPropertyChanged("SellerName");
             }
         }
+        private string _SellerPosition;
+        public string SellerPosition
+        {
+            get
+            {
+                return _SellerPosition;
+            }
+            set
+            {
+                _SellerPosition = value;
+                OnPropertyChanged("SellerPosition");
+            }
+        }
         private string _SellerSurname;
         public string SellerSurname
         {
@@ -1737,7 +1750,7 @@ namespace ShopControlApp
                                 switch (filterAction)
                                 {
                                     case FilterAction.ByDate: 
-                                     Checks = new ObservableCollection<Check>(db.Checks.Where(i => i.SellDate == CheckDate));
+                                     Checks = new ObservableCollection<Check>(db.Checks.Where(i => i.SellDate.Date == CheckDate.Date));
                                     break;
                                 }
                                 break;
@@ -1805,10 +1818,10 @@ namespace ShopControlApp
                                 switch (filterAction)
                                 {
                                     case FilterAction.ByBirthDay:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Birthday == SellerBirthday));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Birthday.Date == SellerBirthday.Date));
                                         break;
                                     case FilterAction.ByEmploymentDate:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.EmploymentDay == SellerEmploymentDay));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.EmploymentDay.Date == SellerEmploymentDay.Date));
                                         break;
                                     case FilterAction.ByName:
                                         Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Name == SellerName));
@@ -1820,7 +1833,7 @@ namespace ShopControlApp
                                         Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Patronymic == SellerPatronymic));
                                         break;
                                     case FilterAction.ByPosition:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.PositionID == SellerPositionID));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Position.Title == SellerPosition));
                                         break;
                                 }
                                 break;

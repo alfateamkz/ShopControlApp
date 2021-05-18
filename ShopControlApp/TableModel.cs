@@ -23,6 +23,7 @@ namespace ShopControlApp
         public DiscontCard Discont { get; set; }
         [Required]
         [ConcurrencyCheck]
+    //    [Column(TypeName="Date")]
         public DateTime SellDate { get; set; }
         [ConcurrencyCheck]
         public string ListOfProducts { get; set; }

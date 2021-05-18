@@ -9,9 +9,7 @@
        Title="Чеки" Height="472.817" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadTable}">
-                
-            </i:InvokeCommandAction>
+            <i:InvokeCommandAction Command="{Binding LoadTable}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid >
@@ -38,6 +36,7 @@
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
 
 

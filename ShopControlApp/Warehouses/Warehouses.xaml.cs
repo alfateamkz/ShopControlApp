@@ -45,7 +45,9 @@ namespace ShopControlApp.Warehouses
             WarehousesUpdate f = new WarehousesUpdate();
             f.ShowDialog();
         }
-
+        /// <summary>
+        /// Обновление контекста для сортировки
+        /// </summary>
         private void titleAsc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Warehouses,
@@ -56,6 +58,18 @@ ApplicationViewModel.FilterAction.ByAddress, ApplicationViewModel.FilterParamete
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Warehouses,
 ApplicationViewModel.FilterAction.ByAddress, ApplicationViewModel.FilterParameter.Decs);
+        }
+
+
+
+        /// <summary>
+        /// Обновление контекста для поиска в БД
+        /// </summary>
+        /// 
+        private void searchByAddress(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Warehouses,
+ApplicationViewModel.FilterAction.ByAddress, ApplicationViewModel.FilterParameter.Null);
         }
     }
 }

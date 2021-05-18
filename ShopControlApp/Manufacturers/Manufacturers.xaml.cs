@@ -45,7 +45,9 @@ namespace ShopControlApp.Manufacturers
             ManufacturersUpdate f = new ManufacturersUpdate();
             f.ShowDialog();
         }
-
+        /// <summary>
+        /// Обновление контекста для сортировки
+        /// </summary>
         private void TitleAsc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Manufacturers,
@@ -67,7 +69,22 @@ ApplicationViewModel.FilterAction.ByCountry, ApplicationViewModel.FilterParamete
         private void CountryAsc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Manufacturers,
-ApplicationViewModel.FilterAction.ByCountry, ApplicationViewModel.FilterParameter.Decs);
+ApplicationViewModel.FilterAction.ByCountry, ApplicationViewModel.FilterParameter.Null);
+        }
+
+        /// <summary>
+        /// Обновление контекста для поиска в БД
+        /// </summary>
+        private void searchByTitle(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Manufacturers,
+ApplicationViewModel.FilterAction.ByTitle, ApplicationViewModel.FilterParameter.Null);
+        }
+
+        private void searchByCountry(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Manufacturers,
+ApplicationViewModel.FilterAction.ByCountry, ApplicationViewModel.FilterParameter.Null);
         }
     }
 }

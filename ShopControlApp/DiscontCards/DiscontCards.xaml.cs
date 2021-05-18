@@ -42,7 +42,9 @@ namespace ShopControlApp.DiscontCards
             this.Close();
             DiscontCardsUpdate f = new DiscontCardsUpdate();  f.Show();
         }
-
+        /// <summary>
+        /// Обновление контекста для сортировки
+        /// </summary>
         private void percentageAcs(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.DiscontCards,
@@ -67,10 +69,32 @@ ApplicationViewModel.FilterAction.BySum, ApplicationViewModel.FilterParameter.Ac
 ApplicationViewModel.FilterAction.BySum, ApplicationViewModel.FilterParameter.Decs);
         }
 
-        private void searchBySumAsc(object sender, TextChangedEventArgs e)
+
+        /// <summary>
+        /// Обновление контекста для поиска в БД
+        /// </summary>
+        private void searchBySumAsc(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.DiscontCards,
 ApplicationViewModel.FilterAction.BySum, ApplicationViewModel.FilterParameter.Acs);
+        }
+
+        private void searchBySumDesc(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.DiscontCards,
+ApplicationViewModel.FilterAction.BySum, ApplicationViewModel.FilterParameter.Decs);
+        }
+
+        private void searchByPersentAsc(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.DiscontCards,
+ApplicationViewModel.FilterAction.ByPercent, ApplicationViewModel.FilterParameter.Acs);
+        }
+
+        private void searchByPersentDesc(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.DiscontCards,
+ApplicationViewModel.FilterAction.ByPercent, ApplicationViewModel.FilterParameter.Decs);
         }
     }
 }

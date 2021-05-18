@@ -33,18 +33,31 @@
                 <MenuItem Header="По названию" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="40" Text="{Binding ManufacturerTitle,Mode=OneWayToSource}" GotFocus="searchByTitle">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="По стране" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="40" Text="{Binding ManufacturerCountry,Mode=OneWayToSource}" GotFocus="searchByCountry">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
 
 

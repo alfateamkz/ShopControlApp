@@ -48,47 +48,83 @@
                 <MenuItem Header="По дате рождения" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <DatePicker />
+                            <DatePicker IsTodayHighlighted="True" SelectedDateChanged="searchByDate"  SelectedDate="{Binding SellerBirthday,Mode=OneWayToSource}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectedDateChanged">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </DatePicker>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="По дате трудоустройства" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <DatePicker />
+                            <DatePicker IsTodayHighlighted="True" SelectedDateChanged="searchByEmpDate"  SelectedDate="{Binding SellerEmploymentDay,Mode=OneWayToSource}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectedDateChanged">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </DatePicker>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="По имени" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="40" Text="{Binding SellerName,Mode=OneWayToSource}" GotFocus="searchByName">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="По фамилии" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="40" Text="{Binding SellerSurname,Mode=OneWayToSource}" GotFocus="searchBySurname">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="По отчеству" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="40" Text="{Binding SellerPatronymic,Mode=OneWayToSource}" GotFocus="searchByPatronymic">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="По должности" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="90" Text="{Binding SellerPosition,Mode=OneWayToSource}" GotFocus="searchByPosition">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
-   
+            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
         
     </Grid>

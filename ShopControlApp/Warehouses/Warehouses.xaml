@@ -28,11 +28,18 @@
                 <MenuItem Header="По адресу" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="90" Text="{Binding WarehouseAddress,Mode=OneWayToSource}" GotFocus="searchByAddress">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
 
     </Grid>

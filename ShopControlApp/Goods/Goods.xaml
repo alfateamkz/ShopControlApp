@@ -37,14 +37,26 @@
                     <MenuItem Header="От" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
-                                <TextBlock/>
+                                <TextBox Width="40" Text="{Binding GoodsPrice,Mode=OneWayToSource}" GotFocus="searchByPriceAsc">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeave">
+                                            <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
                             </MenuItem.Header>
                         </MenuItem>
                     </MenuItem>
                     <MenuItem Header="До" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
-                                <TextBlock/>
+                                <TextBox Width="40" Text="{Binding GoodsPrice,Mode=OneWayToSource}" GotFocus="searchByPriceDesc">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeave">
+                                            <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
                             </MenuItem.Header>
                         </MenuItem>
                     </MenuItem>
@@ -52,18 +64,31 @@
                 <MenuItem Header="По названию" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="40" Text="{Binding GoodsTitle,Mode=OneWayToSource}" GotFocus="searchByTitle">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="По гарантии" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
-                            <TextBlock />
+                            <TextBox Width="40" Text="{Binding GoodsWarranty,Mode=OneWayToSource}" GotFocus="searchByWarranty">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:InvokeCommandAction Command="{Binding LoadSearch}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
 
     </Grid>

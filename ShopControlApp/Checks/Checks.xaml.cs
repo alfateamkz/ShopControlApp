@@ -28,7 +28,9 @@ namespace ShopControlApp.Checks
             this.DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Checks);
 
         }
-
+        /// <summary>
+        /// Обновление контекста для сортировки
+        /// </summary>
         private void dateAcs(object sender, RoutedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Checks,
@@ -40,7 +42,9 @@ namespace ShopControlApp.Checks
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Checks,
        ApplicationViewModel.FilterAction.ByDate, ApplicationViewModel.FilterParameter.Decs);
         }
-
+        /// <summary>
+        /// Обновление контекста для поиска в БД
+        /// </summary>
         private void searchByDate(object sender, SelectionChangedEventArgs e)
         {
             DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Checks,
