@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopControlApp.Warehouses"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
-        Title="Добавление склада" Height="133.396" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="{DynamicResource WarehousesAddTitle}" Height="133.396" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Style="{DynamicResource GridBackground}">
 
         <TextBox HorizontalAlignment="Left" x:Name="addressTB" Height="32" FontSize="18" Margin="217,17,0,0" TextWrapping="Wrap" Text="{Binding WarehouseAddress,Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>
-        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="19,17,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Адрес" VerticalAlignment="Top"/>
-        <Button Content="Добавить" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Command="{Binding InsertCommand}"   FontSize="18" Margin="19,60,0,0" VerticalAlignment="Top" Width="399"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="19,17,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource WarehousesAddAddress}" VerticalAlignment="Top"/>
+        <Button Content="{DynamicResource WarehousesAddEnter}" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Command="{Binding InsertCommand}"   FontSize="18" Margin="19,60,0,0" VerticalAlignment="Top" Width="399"/>
 
 
     </Grid>

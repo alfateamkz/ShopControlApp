@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.Checks"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-       Title="Чеки" Height="472.817" Width="800">
+       Title="{DynamicResource ChecksTitle}" Height="472.817" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}"/>
@@ -15,14 +15,14 @@
     <Grid >
         <DataGrid Style="{DynamicResource DGBackground}" x:Name="grid" HorizontalAlignment="Left" Height="415" VerticalAlignment="Top" Width="792" Grid.Column="0" Margin="0,27,0,0" ItemsSource="{Binding Checks}"/>
         <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="814" Margin="0,0,-22,0">
-            <MenuItem Header="Сортировать" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+            <MenuItem Header="{DynamicResource sharedSort}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
                 <MenuItem Header="По дате" FontSize="16">
-                    <MenuItem Header="С самого раннего" Click="dateAcs" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" FontSize="16"></MenuItem>
-                    <MenuItem Header="С самого позднего" Click="dateDecs" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByDateAsc}" Click="dateAcs" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByPriceDesc}" Click="dateDecs" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" FontSize="16"></MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Поиск"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                <MenuItem Header="По дате" Style="{DynamicResource MenuItemStyle}">
+            <MenuItem Header="{DynamicResource sharedSearch}"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="{DynamicResource filterByDate}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <DatePicker IsTodayHighlighted="True" SelectedDateChanged="searchByDate" SelectedDate="{Binding CheckDate,Mode=OneWayToSource}">
@@ -36,7 +36,7 @@
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
+            <MenuItem Header="{DynamicResource sharedCancelFilters}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
 
 

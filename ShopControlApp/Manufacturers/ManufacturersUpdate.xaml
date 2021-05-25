@@ -6,18 +6,18 @@
         xmlns:local="clr-namespace:ShopControlApp.Manufacturers"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-        Title="Изменение данных о производителе" Height="283.915" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="{DynamicResource ManufacturersUpdateTitle}" Height="283.915" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid Style="{DynamicResource GridBackground}">
-        <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="19,72,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"/>
-        <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="19,113,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Страна" VerticalAlignment="Top"/>
-        <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="19,159,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Город" VerticalAlignment="Top"/>
-        <Button Content="Изменить данные" HorizontalAlignment="Left"  Style="{DynamicResource ButtonStyle}"  Command="{Binding UpdateCommand}"   FontSize="18" Margin="19,203,0,0" VerticalAlignment="Top" Width="399"/>
-        <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="19,26,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Производитель" VerticalAlignment="Top"/>
+        <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="19,72,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource ManufacturersUpdateTitle2}" VerticalAlignment="Top"/>
+        <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="19,113,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource ManufacturersUpdateCountry}" VerticalAlignment="Top"/>
+        <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="19,159,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource ManufacturersUpdateCity}" VerticalAlignment="Top"/>
+        <Button Content="{DynamicResource ManufacturersUpdateEnter}" HorizontalAlignment="Left"  Style="{DynamicResource ButtonStyle}"  Command="{Binding UpdateCommand}"   FontSize="18" Margin="19,203,0,0" VerticalAlignment="Top" Width="399"/>
+        <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="19,26,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource ManufacturersUpdateManufacturer}" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" x:Name="titleTB" Height="32" FontSize="18" Margin="218,64,0,0" TextWrapping="Wrap" Text="{Binding ManufacturerTitle, Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>
         <TextBox HorizontalAlignment="Left" x:Name="countryTB" Height="32" FontSize="18" Margin="218,105,0,0" TextWrapping="Wrap" Text="{Binding ManufacturerCountry, Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>
         <TextBox HorizontalAlignment="Left" x:Name="cityTB" Height="32" FontSize="18" Margin="218,151,0,0" TextWrapping="Wrap" Text="{Binding ManufacturerCity, Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>

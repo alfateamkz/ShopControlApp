@@ -20,10 +20,10 @@ namespace ShopControlApp
     public partial class MsgBox : Window
     {
 
-        public MsgBox(string title, string article)
+        public MsgBox(MessageCode messageCode)
         {
             InitializeComponent();
-            this.DataContext = new MsgBoxCustom(title,article);
+            this.DataContext = new MsgBoxCustom(messageCode);
            
         }
 

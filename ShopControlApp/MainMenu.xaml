@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopControlApp"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
-        Title="MainMenu" Height="191.408" Width="589.577">
+        Title="{DynamicResource mainMenuTitle}" Height="191.408" Width="589.577">
     <Grid  Style="{DynamicResource GridBackground}">
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="createCheck" Content="Создать чек" FontSize="16" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="discontCards" Content="Дисконтные карты" FontSize="16" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_1"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="exit" Content="Выход" FontSize="16" HorizontalAlignment="Left" Margin="523,0,0,0" VerticalAlignment="Top" Width="56" Height="43" Click="Button_Click_5"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="Goods" Content="Список товаров" FontSize="16" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_2"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="GoodsAtWarehouses" Content="Товары на складах" FontSize="16" HorizontalAlignment="Left" Margin="175,58,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_3"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="Checks" Content="Список чеков" FontSize="16" HorizontalAlignment="Left" Margin="340,10,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_4"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="Warehouses" Content="Склады" FontSize="16" HorizontalAlignment="Left" Margin="340,58,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_6"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="Manufacturers" Content="Производители" FontSize="16" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_7"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="Sellers" Content="Сотрудники" FontSize="16" HorizontalAlignment="Left" Margin="175,106,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_8"/>
-        <Button Style="{DynamicResource ButtonStyle}" x:Name="Warehouses_Copy" Content="Настройки" FontSize="16" HorizontalAlignment="Left" Margin="482,107,0,0" VerticalAlignment="Top" Width="97" Height="43" Click="Settings"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="createCheck" Content="{DynamicResource mainMenuCreateCheck}" FontSize="16" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="discontCards" Content="{DynamicResource mainMenuDiscontCards}" FontSize="16" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_1"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="exit" Content="{DynamicResource mainMenuExit}" FontSize="16" HorizontalAlignment="Left" Margin="523,0,0,0" VerticalAlignment="Top" Width="56" Height="43" Click="Button_Click_5"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="Goods" Content="{DynamicResource mainMenuGoods}" FontSize="16" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_2"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="GoodsAtWarehouses" Content="{DynamicResource mainMenuGoodsAtWarehouses}" FontSize="16" HorizontalAlignment="Left" Margin="175,58,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_3"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="Checks" Content="{DynamicResource mainMenuChecks}" FontSize="16" HorizontalAlignment="Left" Margin="340,10,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_4"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="Warehouses" Content="{DynamicResource mainMenuWarehouses}" FontSize="16" HorizontalAlignment="Left" Margin="340,58,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_6"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="Manufacturers" Content="{DynamicResource mainMenuManufacturers}" FontSize="16" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_7"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="Sellers" Content="{DynamicResource mainMenuSellers}" FontSize="16" HorizontalAlignment="Left" Margin="175,106,0,0" VerticalAlignment="Top" Width="160" Height="43" Click="Button_Click_8"/>
+        <Button Style="{DynamicResource ButtonStyle}" x:Name="Warehouses_Copy" Content="{DynamicResource mainMenuSettings}" FontSize="16" HorizontalAlignment="Left" Margin="482,107,0,0" VerticalAlignment="Top" Width="97" Height="43" Click="Settings"/>
     </Grid>
 </Window>

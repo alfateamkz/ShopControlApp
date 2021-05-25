@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.Sellers"
             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
-           Title="Сотрудники" Height="472.817" Width="800">
+           Title="{DynamicResource SellersTitle}" Height="472.817" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}"/>
@@ -15,37 +15,37 @@
     <Grid Style="{DynamicResource GridBackground}">
         <DataGrid Style="{DynamicResource DGBackground}"  HorizontalAlignment="Left" Height="415" VerticalAlignment="Top" Width="792" Grid.Column="0" Margin="0,27,0,0" ItemsSource="{Binding Sellers}"/>
         <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="814" Margin="0,0,-22,0">
-            <MenuItem Header="Добавить" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click"></MenuItem>
-            <MenuItem Header="Удалить" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click_1"></MenuItem>
-            <MenuItem Header="Изменить" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click_2"></MenuItem>
-            <MenuItem Header="Сортировать" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                <MenuItem Header="По дате рождения" Style="{DynamicResource MenuItemStyle}"  FontSize="16">
-                    <MenuItem Header="С раннего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="birthAsc" FontSize="16"></MenuItem>
-                    <MenuItem Header="С позднего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="birthDesc" FontSize="16"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedAdd}" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedDelete}" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click_1"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedUpdate}" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click_2"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedSort}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="{DynamicResource filterByBirthDay}" Style="{DynamicResource MenuItemStyle}"  FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByDateAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="birthAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByDateDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="birthDesc" FontSize="16"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="По дате трудоустройства" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                    <MenuItem Header="С раннего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="empDateAsc" FontSize="16"></MenuItem>
-                    <MenuItem Header="С позднего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="empDateDesc"  FontSize="16"></MenuItem>
+                <MenuItem Header="{DynamicResource filterByEmploymentDate}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByDateAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="empDateAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByDateDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="empDateDesc"  FontSize="16"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="По имени" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                    <MenuItem Header="С начала алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}"  Click="nameAsc" FontSize="16"></MenuItem>
-                    <MenuItem Header="С конца алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="nameDesc" FontSize="16"></MenuItem>
+                <MenuItem Header="{DynamicResource filterByName}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByAlphabetAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}"  Click="nameAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByAlphabetDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="nameDesc" FontSize="16"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="По фамилии" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                    <MenuItem Header="С начала алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="surnameAsc" FontSize="16"></MenuItem>
-                    <MenuItem Header="С конца алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="surnameDesc" FontSize="16"></MenuItem>
+                <MenuItem Header="{DynamicResource filterBySurname}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByAlphabetAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="surnameAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByAlphabetDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="surnameDesc" FontSize="16"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="По отчеству" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                    <MenuItem Header="С начала алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}"  Click="patronymicAsc"  FontSize="16"></MenuItem>
-                    <MenuItem Header="С конца алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="patronymicDesc" FontSize="16"></MenuItem>
+                <MenuItem Header="{DynamicResource filterByPatronymic}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByAlphabetAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}"  Click="patronymicAsc"  FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByAlphabetDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="patronymicDesc" FontSize="16"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="По должности" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                    <MenuItem Header="С начала алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="PositionAsc"  FontSize="16"></MenuItem>
-                    <MenuItem Header="С конца алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}"  Click="PositionDesc" FontSize="16"></MenuItem>
+                <MenuItem Header="{DynamicResource filterByPosition}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByAlphabetAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="PositionAsc"  FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByAlphabetDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}"  Click="PositionDesc" FontSize="16"></MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Поиск" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                <MenuItem Header="По дате рождения" Style="{DynamicResource MenuItemStyle}">
+            <MenuItem Header="{DynamicResource sharedSearch}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="{DynamicResource filterByBirthDay}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <DatePicker IsTodayHighlighted="True" SelectedDateChanged="searchByDate"  SelectedDate="{Binding SellerBirthday,Mode=OneWayToSource}">
@@ -58,7 +58,7 @@
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="По дате трудоустройства" Style="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="{DynamicResource filterByEmploymentDate}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <DatePicker IsTodayHighlighted="True" SelectedDateChanged="searchByEmpDate"  SelectedDate="{Binding SellerEmploymentDay,Mode=OneWayToSource}">
@@ -71,7 +71,7 @@
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="По имени" Style="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="{DynamicResource filterByName}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <TextBox Width="40" Text="{Binding SellerName,Mode=OneWayToSource}" GotFocus="searchByName">
@@ -84,7 +84,7 @@
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="По фамилии" Style="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="{DynamicResource filterBySurname}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <TextBox Width="40" Text="{Binding SellerSurname,Mode=OneWayToSource}" GotFocus="searchBySurname">
@@ -97,7 +97,7 @@
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="По отчеству" Style="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="{DynamicResource filterByPatronymic}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <TextBox Width="40" Text="{Binding SellerPatronymic,Mode=OneWayToSource}" GotFocus="searchByPatronymic">
@@ -110,7 +110,7 @@
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="По должности" Style="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="{DynamicResource filterByPosition}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <TextBox Width="90" Text="{Binding SellerPosition,Mode=OneWayToSource}" GotFocus="searchByPosition">
@@ -124,7 +124,7 @@
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
+            <MenuItem Header="{DynamicResource sharedCancelFilters}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
         
     </Grid>

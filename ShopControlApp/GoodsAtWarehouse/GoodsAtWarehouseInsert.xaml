@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.GoodsAtWarehouse"
          xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
-          Title="Добавление товара" Height="159.864" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+          Title="{DynamicResource GoodsAtWarehouseAddTitle}" Height="159.864" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadGoodsID}" />
@@ -18,8 +18,8 @@
             <ColumnDefinition Width="55*"/>
             <ColumnDefinition Width="211*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="16,15,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Товар" VerticalAlignment="Top"/>
-        <Button Style="{DynamicResource ButtonStyle}" Content="Добавить товар" HorizontalAlignment="Left"    FontSize="18" Margin="16,95,0,0" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="3" Command="{Binding InsertCommand}"/>
+        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="16,15,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource GoodsAtWarehouseAddProduct}" VerticalAlignment="Top"/>
+        <Button Style="{DynamicResource ButtonStyle}" Content="{DynamicResource GoodsAtWarehouseAddEnter}" HorizontalAlignment="Left"    FontSize="18" Margin="16,95,0,0" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="3" Command="{Binding InsertCommand}"/>
         <ComboBox HorizontalAlignment="Left" x:Name="goodsLB" Height="35" Margin="50,15,0,0" FontSize="18"  VerticalAlignment="Top" Width="202" Grid.Column="1" Grid.ColumnSpan="2"
                  SelectedItem="{Binding SelectedGood, Mode=OneWayToSource}" ItemsSource="{Binding Goods}">
             <ComboBox.ItemTemplate>
@@ -30,7 +30,7 @@
         </ComboBox>
         <TextBox HorizontalAlignment="Left" x:Name="quantityTB" Height="32" FontSize="18" Margin="50,58,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2" Grid.Column="1"
                  Text="{Binding GoodsAtWarehouseQuantity,Mode=TwoWay}"/>
-        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="16,58,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Количество" VerticalAlignment="Top"/>
+        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="16,58,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource GoodsAtWarehouseAddQuantity}" VerticalAlignment="Top"/>
         
     </Grid>
 </Window>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp"
       xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
-        Title="Оформление покупки" Height="573.81" Width="479.762" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow">
+        Title="{DynamicResource dealTitle}" Height="573.81" Width="479.762" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadWarehousesID}" />
@@ -16,10 +16,10 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid Style="{DynamicResource GridBackground}">
-        <Button Content="Добавить в корзину" Command="{Binding BasketAdd}" Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="300,101,0,0" VerticalAlignment="Top" Width="158" Height="27"/>
-        <Button Content="Очистить корзину"  Command="{Binding  LoadGoodsAtWarehouseID}"  Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="17,453,0,0"  VerticalAlignment="Top" Width="223" Height="28"/>
-        <Button Content="Оформить покупку" Command="{Binding Сheckout}"   Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="245,453,0,0" VerticalAlignment="Top" Width="217" Height="28"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,10,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Склад" VerticalAlignment="Top" Height="24" Width="255"/>
+        <Button Content="{DynamicResource dealAddToBasket}" Command="{Binding BasketAdd}" Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="300,101,0,0" VerticalAlignment="Top" Width="158" Height="27"/>
+        <Button Content="{DynamicResource dealClearBasket}" Command="{Binding  LoadGoodsAtWarehouseID}"  Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="17,453,0,0"  VerticalAlignment="Top" Width="223" Height="28"/>
+        <Button Content="{DynamicResource dealCheckout}" Command="{Binding Сheckout}"   Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="245,453,0,0" VerticalAlignment="Top" Width="217" Height="28"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,10,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="{DynamicResource dealWarehouse}" VerticalAlignment="Top" Height="24" Width="255"/>
         <ComboBox x:Name="buttonTextCB" HorizontalAlignment="Left"   SelectedItem="{Binding SelectedWarehouse}" ItemsSource="{Binding Warehouses}" FontSize="16" Margin="10,39,0,0" VerticalAlignment="Top" Width="273" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -27,17 +27,17 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,72,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Товары" VerticalAlignment="Top" Height="24" Width="255"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,72,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="{DynamicResource dealGoods}" VerticalAlignment="Top" Height="24" Width="255"/>
         <ComboBox x:Name="buttonTextCB_Copy"  SelectedItem="{Binding SelectedGoodsAtWarehouse, Mode=OneWayToSource}" ItemsSource="{Binding GoodsAtWarehouseList, Mode=TwoWay}" HorizontalAlignment="Left" FontSize="16" Margin="10,101,0,0" VerticalAlignment="Top" Width="273" />
-        <Button Content="Выбрать склад" Command="{Binding  LoadGoodsAtWarehouseID}"  Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="300,39,0,0" VerticalAlignment="Top" Width="158" Height="27"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,133,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Количество" VerticalAlignment="Top" Height="24" Width="97"/>
+        <Button Content="{DynamicResource dealWarehouseSelect}" Command="{Binding  LoadGoodsAtWarehouseID}"  Style="{DynamicResource ButtonStyle}" FontSize="16" HorizontalAlignment="Left" Margin="300,39,0,0" VerticalAlignment="Top" Width="158" Height="27"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="10,133,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="{DynamicResource dealQuantity}" VerticalAlignment="Top" Height="24" Width="97"/>
         <TextBox  HorizontalAlignment="Left" x:Name="passwordTB" Height="32" Text="{Binding SelectedBasketItemQuantity,Mode=TwoWay}" FontSize="18" Margin="10,157,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="87"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="14,486,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Товары можно брать только с одного склада. При выборе другого склада корзина автоматически очищается!
-                   " VerticalAlignment="Top" Height="53" Width="452"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="13,193,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Корзина" VerticalAlignment="Top" Height="24" Width="255"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="14,486,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="{DynamicResource dealNotice}"
+                    VerticalAlignment="Top" Height="53" Width="452"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="13,193,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="{DynamicResource dealBasket}" VerticalAlignment="Top" Height="24" Width="255"/>
         <ListBox x:Name="buttonTextCB_Copy1" SelectedItem="{Binding SelectedBasketItem, Mode=OneWayToSource}" ItemsSource="{Binding BasketList, Mode=TwoWay}" HorizontalAlignment="Left" FontSize="16" Margin="17,222,0,0"
                  VerticalAlignment="Top" Width="441" Height="226" />
-        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="175,133,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="Дисконтная карта (если есть)" VerticalAlignment="Top" Height="24" Width="283"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" Margin="175,133,0,0"  Style="{DynamicResource TextColor}" TextWrapping="Wrap" Text="{DynamicResource dealDiscont}" VerticalAlignment="Top" Height="24" Width="283"/>
         <ComboBox HorizontalAlignment="Left" x:Name="idTB" Height="31" 
             SelectedItem="{Binding SelectedDiscontCard, Mode=OneWayToSource}" ItemsSource="{Binding DiscontCards}" Margin="175,162,0,0"  VerticalAlignment="Top" Width="283">
             <ComboBox.ItemTemplate>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.DiscontCards"
                xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
-        Title="Дисконтные карты" Height="472.817" Width="800">
+        Title="{DynamicResource DiscontCardsTitle}" Height="472.817" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}"></i:InvokeCommandAction>
@@ -19,23 +19,23 @@
         </Grid.ColumnDefinitions>
         <DataGrid Style="{DynamicResource DGBackground}" HorizontalAlignment="Left" Height="415" VerticalAlignment="Top" Width="792" Grid.Column="0" Margin="0,27,0,0" ItemsSource="{Binding DiscontCards}" Grid.ColumnSpan="2"/>
         <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="814" Margin="0,0,-22,0" Grid.ColumnSpan="2">
-            <MenuItem Header="Добавить" FontSize="16" Style="{DynamicResource MenuItemStyle}"    Click="DCInsert"></MenuItem>
-            <MenuItem Header="Удалить" FontSize="16" Style="{DynamicResource MenuItemStyle}"  Click="DCDelete"></MenuItem>
-            <MenuItem Header="Изменить" FontSize="16" Style="{DynamicResource MenuItemStyle}"  Click="DCUpdate"></MenuItem>
-            <MenuItem Header="Сортировать" Style="{DynamicResource MenuItemStyle}"  FontSize="16">
-                <MenuItem Header="По проценту карты" FontSize="16">
-                    <MenuItem Header="От наименьшего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="percentageAcs" FontSize="16"></MenuItem>
-                    <MenuItem Header="От наибольшего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="percentageDecs"  FontSize="16"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedAdd}" FontSize="16" Style="{DynamicResource MenuItemStyle}"    Click="DCInsert"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedDelete}" FontSize="16" Style="{DynamicResource MenuItemStyle}"  Click="DCDelete"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedUpdate}" FontSize="16" Style="{DynamicResource MenuItemStyle}"  Click="DCUpdate"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedSort}" Style="{DynamicResource MenuItemStyle}"  FontSize="16">
+                <MenuItem Header="{DynamicResource filterByPercent}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByNumberAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="percentageAcs" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByNumberDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="percentageDecs"  FontSize="16"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="По сумме" Style="{DynamicResource MenuItemStyle}"  FontSize="16">
-                    <MenuItem Header="От наименьшего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="SumAsc" FontSize="16"></MenuItem>
-                    <MenuItem Header="От наибольшего" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="SumDesc" FontSize="16"></MenuItem>
+                <MenuItem Header="{DynamicResource filterBySum}" Style="{DynamicResource MenuItemStyle}"  FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByNumberAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="SumAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByNumberDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="SumDesc" FontSize="16"></MenuItem>
                 </MenuItem>
 
             </MenuItem>
-            <MenuItem Header="Поиск" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                <MenuItem Header="По сумме" Style="{DynamicResource MenuItemStyle}">
-                    <MenuItem Header="От" Style="{DynamicResource MenuItemStyle}">
+            <MenuItem Header="{DynamicResource sharedSearch}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="{DynamicResource filterBySum}" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="{DynamicResource filterFrom}" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
                                 <TextBox Width="40" Text="{Binding DiscontCardSum,Mode=OneWayToSource}" GotFocus="searchBySumAsc">
@@ -49,7 +49,7 @@
                             
                         </MenuItem>
                     </MenuItem>
-                    <MenuItem Header="До" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="{DynamicResource filterTo}" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
                                 <TextBox Width="40" Text="{Binding DiscontCardSum,Mode=OneWayToSource}" GotFocus="searchBySumDesc">
@@ -63,8 +63,8 @@
                         </MenuItem>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="По проценту карты" Style="{DynamicResource MenuItemStyle}">
-                    <MenuItem Header="От" Style="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="{DynamicResource filterByPercent}" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="{DynamicResource filterFrom}" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
                                 <TextBox Width="40" Text="{Binding DiscontCardPercentage,Mode=OneWayToSource}" GotFocus="searchByPersentAsc">
@@ -77,7 +77,7 @@
                             </MenuItem.Header>
                         </MenuItem>
                     </MenuItem>
-                    <MenuItem Header="До" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="{DynamicResource filterTo}" Style="{DynamicResource MenuItemStyle}">
                         <MenuItem Style="{DynamicResource MenuItemStyle}">
                             <MenuItem.Header>
                                 <TextBox Width="40" Text="{Binding DiscontCardPercentage,Mode=OneWayToSource}" GotFocus="searchByPersentDesc">

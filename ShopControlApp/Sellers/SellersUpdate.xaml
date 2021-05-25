@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.Sellers"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
          xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-       Title="Редактирование данных сотрудника" Height="516.084" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+       Title="{DynamicResource SellersUpdateTitle}" Height="516.084" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Style="{DynamicResource GridBackground}">
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="Loaded">
@@ -20,18 +20,18 @@
             <ColumnDefinition Width="219*"/>
             <ColumnDefinition Width="211*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,71,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top"/>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,112,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top"/>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,158,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Отчество" VerticalAlignment="Top"/>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,200,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Дата рождения" VerticalAlignment="Top"/>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,244,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Дата трудоустройства" VerticalAlignment="Top"/>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,292,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Должность" VerticalAlignment="Top"/>
+        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,71,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdateName}" VerticalAlignment="Top"/>
+        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,112,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdateSurname}" VerticalAlignment="Top"/>
+        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,158,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdatePatronymic}" VerticalAlignment="Top"/>
+        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,200,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdateBirthDate}" VerticalAlignment="Top"/>
+        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,244,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdateEmpDate}" VerticalAlignment="Top"/>
+        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,292,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdatePosition}" VerticalAlignment="Top"/>
         <Grid HorizontalAlignment="Left" Height="151" Margin="21,349,0,-13" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="2">
-            <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="0,51,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdateUsername}" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,51,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdatePassword}" VerticalAlignment="Top"/>
             <Button Style="{DynamicResource ButtonStyle}" Content="Изменить данные" HorizontalAlignment="Left"   Command="{Binding UpdateCommand}"   FontSize="18" Margin="12,99,0,0" VerticalAlignment="Top" Width="378"/>
         </Grid>
-        <TextBlock  Style="{DynamicResource TextColor}" Margin="21,30,85,0"  FontSize="18"  TextWrapping="Wrap" Text="Сотрудник" VerticalAlignment="Top"/>
+        <TextBlock  Style="{DynamicResource TextColor}" Margin="21,30,85,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource SellersUpdateSeller}" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" x:Name="idTB" Height="32" FontSize="18" Margin="0.254,30,0,0" VerticalAlignment="Top" Width="202" Grid.Column="1"
                   ItemsSource="{Binding Sellers}" SelectedItem="{Binding SelectedSeller, Mode=OneWayToSource}">
             <ComboBox.ItemTemplate>

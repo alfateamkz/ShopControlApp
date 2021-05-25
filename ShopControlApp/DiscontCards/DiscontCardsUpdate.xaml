@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.DiscontCards"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
               xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-         Title="Изменение телефона дисконтной карты" Height="187.144" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+         Title="{DynamicResource DiscontCardsUpdateTitle}" Height="187.144" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}"></i:InvokeCommandAction>
@@ -14,9 +14,9 @@
     </i:Interaction.Triggers>
     <Grid Style="{DynamicResource GridBackground}">
         <TextBox HorizontalAlignment="Left" x:Name="phoneTB" Height="32" Text="{Binding DiscontCardPhone,Mode=TwoWay}" FontSize="18" Margin="217,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202"/>
-        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="19,64,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Телефон" VerticalAlignment="Top"/>
-        <Button Content="Изменить данные" HorizontalAlignment="Left"   Style="{DynamicResource ButtonStyle}"  Command="{Binding UpdateCommand}"  FontSize="18" Margin="19,113,0,0" VerticalAlignment="Top" Width="399"/>
-        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="19,26,0,0"  FontSize="18"  TextWrapping="Wrap" Text="ID" VerticalAlignment="Top"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="19,64,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource DiscontCardsUpdatePhone}" VerticalAlignment="Top"/>
+        <Button Content="{DynamicResource DiscontCardsUpdateEnter}" HorizontalAlignment="Left"   Style="{DynamicResource ButtonStyle}"  Command="{Binding UpdateCommand}"  FontSize="18" Margin="19,113,0,0" VerticalAlignment="Top" Width="399"/>
+        <TextBlock Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="19,26,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource DiscontCardsUpdateID}" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" x:Name="idTB" Height="32" FontSize="18" 
                   SelectedItem="{Binding  SelectedDiscontCard,Mode=OneWayToSource}" ItemsSource="{Binding DiscontCards}" Margin="218,26,0,0"  VerticalAlignment="Top" Width="202">
             <ComboBox.ItemTemplate>

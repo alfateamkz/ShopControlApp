@@ -1,0 +1,222 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <!--Окно уведомлений-->
+    <v:String x:Key="msgBoxAccept">OK</v:String>
+    <!--Окно авторизации--> 
+    <v:String x:Key="authUsername">Username</v:String>
+    <v:String x:Key="authPassword">Password</v:String>
+    <v:String x:Key="authTitle">Authorization</v:String>
+    <v:String x:Key="authEnter">Log in to the store</v:String>   
+    <!--Окно оформления покупки-->
+    <v:String x:Key="dealTitle">Checkout</v:String>
+    <v:String x:Key="dealWarehouse">Warehouse</v:String>
+    <v:String x:Key="dealGoods">Products</v:String>
+    <v:String x:Key="dealQuantity">Quantity</v:String>
+    <v:String x:Key="dealWarehouseSelect">Select a warehouse</v:String>
+    <v:String x:Key="dealAddToBasket">Add to Shopping Cart</v:String>
+    <v:String x:Key="dealDiscont">Discount card (if any)</v:String>
+    <v:String x:Key="dealBasket">Shopping Cart</v:String>
+    <v:String x:Key="dealClearBasket">Clear basket</v:String>
+    <v:String x:Key="dealCheckout">Checkout</v:String>
+    <v:String x:Key="dealNotice">Goods can only be taken from one warehouse.
+        When choosing another warehouse, the basket is automatically emptied!</v:String> 
+    <!--Главное меню-->
+    <v:String x:Key="mainMenuTitle">Main menu</v:String>
+    <v:String x:Key="mainMenuExit">Exit</v:String>
+    <v:String x:Key="mainMenuSettings">Settings</v:String>
+    <v:String x:Key="mainMenuCreateCheck">Create a check</v:String>
+    <v:String x:Key="mainMenuDiscontCards">Discont cards</v:String>
+    <v:String x:Key="mainMenuManufacturers">Manufacturers</v:String>
+    <v:String x:Key="mainMenuGoods">List of goods</v:String>
+    <v:String x:Key="mainMenuGoodsAtWarehouses">Goods in warehouses</v:String>
+    <v:String x:Key="mainMenuSellers">Employees</v:String>
+    <v:String x:Key="mainMenuChecks">List of checks</v:String>
+    <v:String x:Key="mainMenuWarehouses">Warehouses</v:String>
+    <!--Общие элементы меню-->
+    <v:String x:Key="sharedAdd">Insert</v:String>
+    <v:String x:Key="sharedDelete">Delete</v:String>
+    <v:String x:Key="sharedUpdate">Update</v:String>
+    <v:String x:Key="sharedSort">Sort</v:String>
+    <v:String x:Key="sharedSearch">Search</v:String>
+    <v:String x:Key="sharedCancelFilters">Remove filters</v:String>
+    <!--Параметры фильтрации и поиска-->
+    <v:String x:Key="filterByDate">By date</v:String>
+
+    <v:String x:Key="filterByDateAsc">From an early</v:String>
+    <v:String x:Key="filterByDateDesc">From late</v:String>
+
+    <v:String x:Key="filterByAlphabetAsc">From the beginning of the alphabet</v:String>
+    <v:String x:Key="filterByAlphabetDesc">From the end of the alphabet</v:String>
+
+    <v:String x:Key="filterByNumberAsc">From the smallest</v:String>
+    <v:String x:Key="filterByNumberDesc">From the greatest</v:String>
+
+    <v:String x:Key="filterByPriceAsc">From the cheapest</v:String>
+    <v:String x:Key="filterByPriceDesc">From the dearest</v:String>
+
+    <v:String x:Key="filterByStart">From the first</v:String>
+    <v:String x:Key="filterByEnd">From the end</v:String>
+
+    <v:String x:Key="filterFrom">From</v:String>
+    <v:String x:Key="filterTo">To</v:String>
+
+
+    <v:String x:Key="filterBySum">By sum</v:String>
+    <v:String x:Key="filterByPercent">By persent</v:String>
+    <v:String x:Key="filterByPrice">By price</v:String>
+    <v:String x:Key="filterByName">By name</v:String>
+    <v:String x:Key="filterBySurname">By surname</v:String>
+    <v:String x:Key="filterByWarranty">By warranty</v:String>
+    <v:String x:Key="filterByCountry">By country</v:String>
+    <v:String x:Key="filterByBirthDay">By birthdate</v:String>
+    <v:String x:Key="filterByEmploymentDate">By employment date</v:String>
+    <v:String x:Key="filterByPatronymic">By patronymic</v:String>
+    <v:String x:Key="filterByPosition">By position</v:String>
+    <v:String x:Key="filterByTitle">By title</v:String>
+    <v:String x:Key="filterByAddress">By address</v:String>
+    
+    
+    <!--Список чеков-->
+    <v:String x:Key="ChecksTitle">Checks</v:String>
+    <!--Настройки-->  
+    <v:String x:Key="settingsTitle">Settings</v:String>
+    <v:String x:Key="settingsThemes">Themes</v:String>
+    <v:String x:Key="settingsThemesLight">Light</v:String>
+    <v:String x:Key="settingsThemesDark">Dark</v:String>
+    <v:String x:Key="settingsThemesBlue">Blue</v:String>
+    <v:String x:Key="settingsCustomSettings">Customization to taste</v:String>
+    <v:String x:Key="settingsLanguage">Language</v:String>
+    <v:String x:Key="settingsColorButtonText">Button textcolor</v:String>
+    <v:String x:Key="settingsColorButton">Button color</v:String>
+    <v:String x:Key="settingsColorBg">Background color</v:String>
+    <v:String x:Key="settingsColorText">Text color</v:String>
+    <v:String x:Key="settingsColorWindow">Window color</v:String>
+    <v:String x:Key="settingsSaveChanges">Changes are saved automatically</v:String>
+    <v:String x:Key="settingsExit">Exit without saving</v:String>
+    <!--Дисконтные карты-->
+    <v:String x:Key="DiscontCardsTitle">Discount cards</v:String>
+    <!--Дисконтные карты (добавление)-->
+    <v:String x:Key="DiscontCardsAddTitle">Creating a discount card</v:String>
+    <v:String x:Key="DiscontCardsAddEnter">Create a card</v:String>
+    <v:String x:Key="DiscontCardsAddPhone">Phone</v:String>
+    <!--Дисконтные карты (обновление)-->
+    <v:String x:Key="DiscontCardsUpdateTitle">Change the phone number of a discount card</v:String>
+    <v:String x:Key="DiscontCardsUpdateEnter">Change the data</v:String>
+    <v:String x:Key="DiscontCardsUpdatePhone">Phone</v:String>
+    <v:String x:Key="DiscontCardsUpdateID">ID</v:String>
+    <!--Дисконтные карты (удаление)-->
+    <v:String x:Key="DiscontCardsDeleteTitle">Removing a discount card</v:String>
+    <v:String x:Key="DiscontCardsDeleteEnter">Remove</v:String>
+    <v:String x:Key="DiscontCardsDeleteID">Card ID</v:String>
+    <v:String x:Key="DiscontCardsDeleteID2">to delete</v:String>
+    <!--Товары-->
+    <v:String x:Key="GoodsTitle">Goods</v:String>
+    <!--Товары (добавление)-->
+    <v:String x:Key="GoodsAddTitle">Adding a product</v:String>
+    <v:String x:Key="GoodsAddEnter">Add a product</v:String>
+    <v:String x:Key="GoodsAddTitle2">Title</v:String>
+    <v:String x:Key="GoodsAddPrice">Price</v:String>
+    <v:String x:Key="GoodsAddWarranty">Guarantee period</v:String>
+    <v:String x:Key="GoodsAddManufacturer">Manufacturer</v:String>
+    <!--Товары (обновление)-->
+    <v:String x:Key="GoodsUpdateTitle">Editing product data</v:String>
+    <v:String x:Key="GoodsUpdateEnter">Change the data</v:String>
+    <v:String x:Key="GoodsUpdateTitle2">Title</v:String>
+    <v:String x:Key="GoodsUpdatePrice">Price</v:String>
+    <v:String x:Key="GoodsUpdateWarranty">Guarantee period</v:String>
+    <v:String x:Key="GoodsUpdateManufacturer">Manufacturer</v:String>
+    <v:String x:Key="GoodsUpdateProduct">Product</v:String>
+    <!--Товары (удаление)-->
+    <v:String x:Key="GoodsDeleteTitle">Removing an item</v:String>
+    <v:String x:Key="GoodsDeleteEnter">Remove</v:String>
+    <v:String x:Key="GoodsDeleteID">Product ID</v:String>
+    <v:String x:Key="GoodsDeleteID2">to delete</v:String>
+    <!--Товары на складе-->
+    <v:String x:Key="GoodsAtWarehouse">Goods in stock</v:String>
+    <!--Товары на складе (добавление)-->
+    <v:String x:Key="GoodsAtWarehouseAddTitle">Adding a product</v:String>
+    <v:String x:Key="GoodsAtWarehouseAddEnter">Add a product</v:String>
+    <v:String x:Key="GoodsAtWarehouseAddProduct">Product</v:String>
+    <v:String x:Key="GoodsAtWarehouseAddQuantity">Quantity</v:String>
+    <!--Товары на складе (обновление)-->
+    <v:String x:Key="GoodsAtWarehouseUpdateTitle">Editing data about a product in stock</v:String>
+    <v:String x:Key="GoodsAtWarehouseUpdateEnter">Change the data</v:String>
+    <v:String x:Key="GoodsAtWarehouseUpdateProduct">Item ID in the stock</v:String>
+    <v:String x:Key="GoodsAtWarehouseUpdateQuantity">Quantity</v:String>
+    <!--Товары на складе (удаление)-->
+    <v:String x:Key="GoodsAtWarehouseDeleteTitle">Removing goods from the warehouse</v:String>
+    <v:String x:Key="GoodsAtWarehouseDeleteEnter">Remove</v:String>
+    <v:String x:Key="GoodsAtWarehouseDeleteID">Product ID</v:String>
+    <v:String x:Key="GoodsAtWarehouseDeleteID2">to remove</v:String>
+    <!--Товары на складе (выбор склада)-->
+    <v:String x:Key="GoodsAtWarehouseSelectTitle">Warehouse selection</v:String>
+    <v:String x:Key="GoodsAtWarehouseSelectEnter">Select</v:String>
+    <!--Производители-->
+    <v:String x:Key="ManufacturersTitle">Manufacturers</v:String>
+    <!--Производители (добавление)-->
+    <v:String x:Key="ManufacturersAddTitle">Adding a manufacturer</v:String>
+    <v:String x:Key="ManufacturersAddEnter">Add a manufacturer</v:String>
+    <v:String x:Key="ManufacturersAddTitle2">Title</v:String>
+    <v:String x:Key="ManufacturersAddCountry">Country</v:String>
+    <v:String x:Key="ManufacturersAddCity">City</v:String>
+    <!--Производители (обновление)-->
+    <v:String x:Key="ManufacturersUpdateTitle">Changing manufacturer data</v:String>
+    <v:String x:Key="ManufacturersUpdateEnter">Change the data</v:String>
+    <v:String x:Key="ManufacturersUpdateTitle2">Title</v:String>
+    <v:String x:Key="ManufacturersUpdateCountry">Country</v:String>
+    <v:String x:Key="ManufacturersUpdateCity">City</v:String>
+    <v:String x:Key="ManufacturersUpdateManufacturer">Manufacturer</v:String>
+    <!--Производители (удаление)-->
+    <v:String x:Key="ManufacturersDeleteTitle">Removing a manufacturer</v:String>
+    <v:String x:Key="ManufacturersDeleteEnter">Remove</v:String>
+    <v:String x:Key="ManufacturersDeleteID">Manufacturer ID</v:String>
+    <v:String x:Key="ManufacturersDeleteID2">to remove</v:String>
+    <!--Сотрудники (sellers)-->
+    <v:String x:Key="SellersTitle">Employees</v:String>
+    <!--Сотрудники (sellers) (добавление)-->
+    <v:String x:Key="SellersAddTitle">Adding an employee</v:String>
+    <v:String x:Key="SellersAddEnter">Add an employee</v:String>
+    <v:String x:Key="SellersAddName">Name</v:String>
+    <v:String x:Key="SellersAddSurname">Surname</v:String>
+    <v:String x:Key="SellersAddPatronymic">Patronymic</v:String>
+    <v:String x:Key="SellersAddBirthDate">Birthdate</v:String>
+    <v:String x:Key="SellersAddEmpDate">Employment date</v:String>
+    <v:String x:Key="SellersAddPosition">Position</v:String>
+    <v:String x:Key="SellersAddUsername">Username</v:String>
+    <v:String x:Key="SellersAddPassword">Password</v:String>
+    <!--Сотрудники (sellers) (обновление)-->
+    <v:String x:Key="SellersUpdateTitle">Editing employee data</v:String>
+    <v:String x:Key="SellersUpdateEnter">Change the data</v:String>
+    <v:String x:Key="SellersUpdateName">Name</v:String>
+    <v:String x:Key="SellersUpdateSurname">Surname</v:String>
+    <v:String x:Key="SellersUpdatePatronymic">Patronymic</v:String>
+    <v:String x:Key="SellersUpdateBirthDate">Birthdate</v:String>
+    <v:String x:Key="SellersUpdateEmpDate">Employment date</v:String>
+    <v:String x:Key="SellersUpdatePosition">Position</v:String>
+    <v:String x:Key="SellersUpdateUsername">Username</v:String>
+    <v:String x:Key="SellersUpdatePassword">Password</v:String>
+    <v:String x:Key="SellersUpdateSeller">Employee</v:String>
+    <!--Сотрудники (sellers) (удаление)-->
+    <v:String x:Key="SellersDeleteTitle">Deleting an employee</v:String>
+    <v:String x:Key="SellersDeleteEnter">Delete</v:String>
+    <v:String x:Key="SellersDeleteID">Employee ID</v:String>
+    <v:String x:Key="SellersDeleteID2">to delete</v:String>
+    <!--Склады-->
+    <v:String x:Key="WarehousesTitle">Warehouses</v:String>
+    <!--Склады (добавление)-->
+    <v:String x:Key="WarehousesAddTitle">Adding a warehouse</v:String>
+    <v:String x:Key="WarehousesAddEnter">Add</v:String>
+    <v:String x:Key="WarehousesAddAddress">Address</v:String>
+    <!--Склады (обновление)-->
+    <v:String x:Key="WarehousesUpdateTitle">Changing warehouse data</v:String>
+    <v:String x:Key="WarehousesUpdateEnter">Change the date</v:String>
+    <v:String x:Key="WarehousesUpdateAddress">Address</v:String>
+    <v:String x:Key="WarehousesUpdateWarehouse">Warehouse</v:String>
+    <!--Склады (удаление)-->
+    <v:String x:Key="WarehousesDeleteTitle">Deleting a warehouse</v:String>
+    <v:String x:Key="WarehousesDeleteEnter">Delete</v:String>
+    <v:String x:Key="WarehousesDeleteID">Warehouse ID</v:String>
+    <v:String x:Key="WarehousesDeleteID2">to delete</v:String>
+
+</ResourceDictionary>

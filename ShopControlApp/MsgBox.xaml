@@ -9,7 +9,7 @@
     <Grid  Style="{DynamicResource GridBackground}">
         <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Center" FontSize="18"  Margin="34,10,0,0" Text="{Binding Article}" VerticalAlignment="Top" Height="35" Width="356"/>
         <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" FontSize="18"  Margin="25,50,0,0" Text="{Binding Description}" TextWrapping="Wrap"  VerticalAlignment="Top" Height="127" Width="379"/>
-        <Button Style="{DynamicResource ButtonStyle}" Content="Принять"  FontSize="18"  HorizontalAlignment="Left" Margin="150,177,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click"/>
+        <Button Style="{DynamicResource ButtonStyle}" Content="{DynamicResource msgBoxAccept}"  FontSize="18"  HorizontalAlignment="Left" Margin="150,177,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click"/>
 
     </Grid>
 </Window>

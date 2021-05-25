@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopControlApp"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
-        Title="Авторизация" Height="191.408" Width="432.394" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        Title="{DynamicResource authTitle}" Height="191.408" Width="432.394" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <Grid  Style="{DynamicResource GridBackground}">
         <TextBox HorizontalAlignment="Left" x:Name="userNameTB" Height="32" FontSize="18" Margin="197,23,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" 
                  Text="{Binding Username, Mode=TwoWay}" AutomationProperties.IsRequiredForForm="True"/>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,23,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Имя пользователя" VerticalAlignment="Top"/>
+        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,23,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource authUsername}" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" x:Name="passwordTB" Height="32" FontSize="18" Margin="197,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" 
                  Text="{Binding Password, Mode=TwoWay}" AutomationProperties.IsRequiredForForm="True"/>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,67,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top"/>
-        <Button Style="{DynamicResource ButtonStyle}" Content="Войти в магазин" HorizontalAlignment="Left" Command="{Binding AuthCommand}"   FontSize="18" Margin="21,116,0,0" VerticalAlignment="Top" Width="378"/>
+        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,67,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource authPassword}" VerticalAlignment="Top"/>
+        <Button Style="{DynamicResource ButtonStyle}" Content="{DynamicResource authEnter}" HorizontalAlignment="Left" Command="{Binding AuthCommand}"   FontSize="18" Margin="21,116,0,0" VerticalAlignment="Top" Width="378"/>
 
     </Grid>
 </Window>

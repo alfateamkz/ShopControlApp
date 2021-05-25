@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.Manufacturers"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-        Title="Производители" Height="472.817" Width="800">
+        Title="{DynamicResource ManufacturersTitle}" Height="472.817" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}"/>
@@ -15,22 +15,22 @@
     <Grid Style="{DynamicResource GridBackground}">
         <DataGrid  Style="{DynamicResource DGBackground}" x:Name="grid" HorizontalAlignment="Left" Height="415" VerticalAlignment="Top" Width="792" Grid.Column="0" Margin="0,27,0,0"  ItemsSource="{Binding Manufacturers}"/>
         <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="814" Margin="0,0,-22,0">
-            <MenuItem Header="Добавить" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click"></MenuItem>
-            <MenuItem Header="Удалить" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click_1"></MenuItem>
-            <MenuItem Header="Изменить" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click_2"></MenuItem>
-            <MenuItem Header="Сортировать" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                <MenuItem Header="По названию" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                    <MenuItem Header="С начала алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="TitleAsc" FontSize="16"></MenuItem>
-                    <MenuItem Header="С конца алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="TitleDesc" FontSize="16"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedAdd}" FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedDelete}"  FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click_1"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedUpdate}"  FontSize="16" Style="{DynamicResource MenuItemStyle}" Click="MenuItem_Click_2"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedSort}"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="{DynamicResource filterByTitle}"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByAlphabetAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="TitleAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByAlphabetDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="TitleDesc" FontSize="16"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="По странам" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                    <MenuItem Header="С начала алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="CountryAsc" FontSize="16"></MenuItem>
-                    <MenuItem Header="С конца алфавита" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="CountryDesc" FontSize="16"></MenuItem>
+                <MenuItem Header="{DynamicResource filterByCountry}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByAlphabetAsc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="CountryAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByAlphabetDesc}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="CountryDesc" FontSize="16"></MenuItem>
                 </MenuItem>
 
             </MenuItem>
-            <MenuItem Header="Поиск" Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                <MenuItem Header="По названию" Style="{DynamicResource MenuItemStyle}">
+            <MenuItem Header="{DynamicResource sharedSearch}"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="{DynamicResource filterByTitle}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <TextBox Width="40" Text="{Binding ManufacturerTitle,Mode=OneWayToSource}" GotFocus="searchByTitle">
@@ -43,7 +43,7 @@
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="По стране" Style="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="{DynamicResource filterByCountry}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <TextBox Width="40" Text="{Binding ManufacturerCountry,Mode=OneWayToSource}" GotFocus="searchByCountry">
@@ -57,7 +57,7 @@
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
+            <MenuItem Header="{DynamicResource sharedCancelFilters}"  Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
 
 

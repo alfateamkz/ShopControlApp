@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.Warehouses"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-          Title="Склады" Height="472.817" Width="800">
+          Title="{DynamicResource WarehousesTitle}" Height="472.817" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}"/>
@@ -15,17 +15,17 @@
     <Grid Style="{DynamicResource GridBackground}">
         <DataGrid Style="{DynamicResource DGBackground}" HorizontalAlignment="Left" Height="415" VerticalAlignment="Top" Width="792" Grid.Column="0" Margin="0,27,0,0" ItemsSource="{Binding Warehouses}"/>
         <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="814" Margin="0,0,-22,0">
-            <MenuItem Header="Добавить"  Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click"></MenuItem>
-            <MenuItem Header="Удалить"  Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click_1"></MenuItem>
-            <MenuItem Header="Изменить"  Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click_2"></MenuItem>
-            <MenuItem Header="Сортировать"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                <MenuItem Header="По адресам"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                    <MenuItem Header="С начала алфавита"  Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="titleAsc" FontSize="16"></MenuItem>
-                    <MenuItem Header="С конца алфавита"  Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}"  Click="titleDesc"  FontSize="16"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedAdd}"  Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedDelete}"  Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click_1"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedUpdate}"  Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click_2"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedSort}" Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="{DynamicResource filterByAddress}"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                    <MenuItem Header="{DynamicResource filterByAlphabetAsc}"  Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}" Click="titleAsc" FontSize="16"></MenuItem>
+                    <MenuItem Header="{DynamicResource filterByAlphabetDesc}"  Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadFilteredTable}"  Click="titleDesc"  FontSize="16"></MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Поиск"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
-                <MenuItem Header="По адресу" Style="{DynamicResource MenuItemStyle}">
+            <MenuItem Header="{DynamicResource sharedSearch}"  Style="{DynamicResource MenuItemStyle}" FontSize="16">
+                <MenuItem Header="{DynamicResource filterByAddress}" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Style="{DynamicResource MenuItemStyle}">
                         <MenuItem.Header>
                             <TextBox Width="90" Text="{Binding WarehouseAddress,Mode=OneWayToSource}" GotFocus="searchByAddress">
@@ -39,7 +39,7 @@
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Снять фильтры" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
+            <MenuItem Header="{DynamicResource sharedCancelFilters}" Style="{DynamicResource MenuItemStyle}" Command="{Binding LoadTable}" FontSize="16"/>
         </Menu>
 
     </Grid>

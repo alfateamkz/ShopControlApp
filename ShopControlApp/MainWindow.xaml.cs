@@ -25,6 +25,7 @@ namespace ShopControlApp
         {
             InitializeComponent();
             this.DataContext = new ApplicationViewModel();
+            AppConfig.Load();
         }
     }
 }

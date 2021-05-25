@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.GoodsAtWarehouse"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
          xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-     Title="Товары на складе" Height="472.817" Width="800">
+     Title="{DynamicResource GoodsAtWarehouse}" Height="472.817" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}">
@@ -17,9 +17,9 @@
     <Grid Style="{DynamicResource GridBackground}">
         <DataGrid Style="{DynamicResource DGBackground}" HorizontalAlignment="Left" Height="415" VerticalAlignment="Top" Width="792" Grid.Column="0" Margin="0,27,0,0"  ItemsSource="{Binding GoodsAtWarehouse}"/>
         <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="814" Margin="0,0,-22,0">
-            <MenuItem Header="Добавить" Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click"></MenuItem>
-            <MenuItem Header="Удалить" Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click_1"></MenuItem>
-            <MenuItem Header="Изменить" Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click_2"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedAdd}" Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedDelete}" Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click_1"></MenuItem>
+            <MenuItem Header="{DynamicResource sharedUpdate}" Style="{DynamicResource MenuItemStyle}" FontSize="16" Click="MenuItem_Click_2"></MenuItem>
         </Menu>
     </Grid>
 </Window>

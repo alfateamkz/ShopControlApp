@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopControlApp.Manufacturers"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
-    Title="Удаление производителя" Height="164.789" Width="284.085" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    Title="{DynamicResource ManufacturersDeleteTitle}" Height="164.789" Width="284.085" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Style="{DynamicResource GridBackground}">
         <TextBox HorizontalAlignment="Left" x:Name="idTB" Height="32" FontSize="18" Margin="177,32,0,0" Text="{Binding ManufacturerID,Mode=TwoWay}"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="79"/>
         <TextBlock Style="{DynamicResource TextColor}"  HorizontalAlignment="Left" Margin="21,23,0,0"  FontSize="18"  TextWrapping="Wrap" VerticalAlignment="Top">
-           <Run >ID производителя</Run>
+           <Run Text="{DynamicResource ManufacturersDeleteID}" ></Run>
             <LineBreak></LineBreak>
-            <Run>для удаления</Run>
+            <Run Text="{DynamicResource ManufacturersDeleteID2}"></Run>
         </TextBlock>
-        <Button Content="Удалить" HorizontalAlignment="Left" Command="{Binding DeleteCommand}"  Style="{DynamicResource ButtonStyle}"   FontSize="18" Margin="21,91,0,0" VerticalAlignment="Top" Width="235"/>
+        <Button Content="{DynamicResource ManufacturersDeleteEnter}" HorizontalAlignment="Left" Command="{Binding DeleteCommand}"  Style="{DynamicResource ButtonStyle}"   FontSize="18" Margin="21,91,0,0" VerticalAlignment="Top" Width="235"/>
 
     </Grid>
 </Window>

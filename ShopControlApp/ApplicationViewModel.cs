@@ -227,7 +227,7 @@ namespace ShopControlApp
                         }
                         if (isSuccesful == false)
                         {
-                            MsgBox f = new MsgBox("Неверные имя пользователя или пароль", "Ошибка входа");
+                            MsgBox f = new MsgBox(MessageCode.AuthError);
                             f.ShowDialog();
 
                         }
@@ -799,11 +799,11 @@ namespace ShopControlApp
                                     DiscontCard discontCard = new DiscontCard { Percentage = 1, Sum = 0, Phone = DiscontCardPhone };
                                     db.DiscontCards.Add(discontCard);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно добавлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Goods:
@@ -818,11 +818,11 @@ namespace ShopControlApp
                                     };
                                     db.Goods.Add(product);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно добавлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.GoodsAtWarehouse:
@@ -836,14 +836,14 @@ namespace ShopControlApp
                                     };
                                     db.GoodsAtWarehouse.Add(goods);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно добавлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
                                     ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse f = new ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                             default:
@@ -859,14 +859,14 @@ namespace ShopControlApp
                                     };
                                     db.Manufacturers.Add(manufacturer);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно добавлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
                                     ShopControlApp.Manufacturers.Manufacturers f = new ShopControlApp.Manufacturers.Manufacturers();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Sellers:
@@ -885,14 +885,14 @@ namespace ShopControlApp
                                     };
                                     db.Sellers.Add(seller);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно добавлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
                                     ShopControlApp.Sellers.Sellers f = new Sellers.Sellers();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Warehouses:
@@ -901,14 +901,14 @@ namespace ShopControlApp
                                     Warehouse warehouse = new Warehouse { Address = WarehouseAddress };
                                     db.Warehouses.Add(warehouse);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно добавлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
                                     ShopControlApp.Warehouses.Warehouses f = new Warehouses.Warehouses();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                         }
@@ -938,12 +938,12 @@ namespace ShopControlApp
                                     DiscontCard discontCard = db.DiscontCards.Where(a => a.ID == DiscontCardID).First();
                                     db.DiscontCards.Remove(discontCard);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно удалена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
                                     ShopControlApp.DiscontCards.DiscontCards f = new DiscontCards.DiscontCards(); f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Записи с таким ID нет", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Goods:
@@ -952,12 +952,12 @@ namespace ShopControlApp
                                     Product product = db.Goods.Where(a => a.ID == GoodsID).First();
                                     db.Goods.Remove(product);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно удалена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
                                     ShopControlApp.Goods.Goods f = new Goods.Goods(); f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Записи с таким ID нет", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.GoodsAtWarehouse:
@@ -966,14 +966,14 @@ namespace ShopControlApp
                                     GoodsAtWarehouses product = db.GoodsAtWarehouse.Where(a => a.ID == GoodsAtWarehouseID).First();
                                     db.GoodsAtWarehouse.Remove(product);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно удалена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
                                     ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse f = new GoodsAtWarehouse.GoodsAtWarehouse();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Записи с таким ID нет", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Manufacturers:
@@ -982,13 +982,13 @@ namespace ShopControlApp
                                     Manufacturer manufacturer = db.Manufacturers.Where(a => a.ID == ManufacturerID).First();
                                     db.Manufacturers.Remove(manufacturer);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно удалена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
                                     ShopControlApp.Manufacturers.Manufacturers f = new Manufacturers.Manufacturers();
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Записи с таким ID нет", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Sellers:
@@ -997,13 +997,13 @@ namespace ShopControlApp
                                     Seller seller = db.Sellers.Where(a => a.ID == SellerID).First();
                                     db.Sellers.Remove(seller);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно удалена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
                                     ShopControlApp.Sellers.Sellers f = new Sellers.Sellers();
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Записи с таким ID нет", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Warehouses:
@@ -1012,13 +1012,13 @@ namespace ShopControlApp
                                     Warehouse warehouse = db.Warehouses.Where(a => a.ID == WarehouseID).First();
                                     db.Warehouses.Remove(warehouse);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно удалена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
                                     ShopControlApp.Warehouses.Warehouses f = new Warehouses.Warehouses();
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Записи с таким ID нет", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
                                 }
                                 break;
                         }
@@ -1049,13 +1049,13 @@ namespace ShopControlApp
                                     {
                                         db.DiscontCards.Update(card);
                                         db.SaveChanges();
-                                        MsgBox msgBox = new MsgBox("Запись успешно обновлена", "Уведомление"); msgBox.ShowDialog();
+                                        MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
                                         ShopControlApp.DiscontCards.DiscontCards f = new DiscontCards.DiscontCards(); f.Show();
                                     }
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неверно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Goods:
@@ -1069,12 +1069,12 @@ namespace ShopControlApp
 
                                     db.Goods.Update(product);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно обновлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
                                     ShopControlApp.Goods.Goods f = new Goods.Goods(); f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.GoodsAtWarehouse:
@@ -1085,14 +1085,14 @@ namespace ShopControlApp
                                     goods.Quantity = GoodsAtWarehouseQuantity;
                                     db.GoodsAtWarehouse.Update(goods);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно обновлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
                                     ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse f = new ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Manufacturers:
@@ -1106,13 +1106,13 @@ namespace ShopControlApp
                                     };
                                     db.Manufacturers.Update(manufacturer);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно обновлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
                                     ShopControlApp.Manufacturers.Manufacturers f = new ShopControlApp.Manufacturers.Manufacturers();
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
 
                                 break;
@@ -1130,14 +1130,14 @@ namespace ShopControlApp
                                     seller.PositionID = SelectedPosition.ID;
                                     db.Sellers.Update(seller);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно обновлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
                                     ShopControlApp.Sellers.Sellers f = new Sellers.Sellers();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                             case Tables.Warehouses:
@@ -1147,14 +1147,14 @@ namespace ShopControlApp
                                     warehouse.Address = WarehouseAddress;
                                     db.Warehouses.Update(warehouse);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox("Запись успешно обновлена", "Уведомление"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
                                     ShopControlApp.Warehouses.Warehouses f = new Warehouses.Warehouses();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox("Неправильно заполненные поля", "Ошибка"); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
                                 }
                                 break;
                         }
@@ -1416,11 +1416,11 @@ namespace ShopControlApp
                             {
                                 if (SelectedBasketItemQuantity > SelectedGoodsAtWarehouse.Quantity)
                                 {
-                                    MsgBox f = new MsgBox("Недостаточно товара на складе", "Ошибка"); f.ShowDialog();
+                                    MsgBox f = new MsgBox(MessageCode.NotEnoughAtWarehouse); f.ShowDialog();
                                 }
                                 else if (SelectedBasketItemQuantity <= 0)
                                 {
-                                    MsgBox f = new MsgBox("Количество товара для добавленя должно быть больше нуля", "Ошибка"); f.ShowDialog();
+                                    MsgBox f = new MsgBox(MessageCode.WrongBasketQuantity); f.ShowDialog();
                                 }
                                 else
                                 {
@@ -1434,7 +1434,7 @@ namespace ShopControlApp
                         catch 
                         {
                            
-                          MsgBox f = new MsgBox("Неверно заполненные поля", "Ошибка"); f.ShowDialog();
+                          MsgBox f = new MsgBox(MessageCode.NullError); f.ShowDialog();
                         }
                     }
                 }));
@@ -1478,12 +1478,12 @@ namespace ShopControlApp
                                 });
                             }
                             db.SaveChanges();
-                            MsgBox f = new MsgBox("Покупка успешно оформлена", "Уведомление"); f.ShowDialog();
+                            MsgBox f = new MsgBox(MessageCode.CheckoutEnd); f.ShowDialog();
 
                         }
                         catch
                         {
-                            MsgBox f = new MsgBox("Неверно заполненные поля", "Ошибка"); f.ShowDialog();
+                            MsgBox f = new MsgBox(MessageCode.NullError); f.ShowDialog();
                         }
                     }
                 }));
@@ -1519,6 +1519,13 @@ namespace ShopControlApp
             Decs = 2,
             Null = 3
         } // возрастание/убывание
+        
+
+        public enum Lang
+        {
+            Russian = 1,
+            English = 2
+        }
         #region Фильтрация
         private DefaultCommand _LoadFilteredTable;
         public DefaultCommand LoadFilteredTable

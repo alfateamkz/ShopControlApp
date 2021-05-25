@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopControlApp.GoodsAtWarehouse"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
-      Title="Редактирование данных о товаре на складе" Height="198.81" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+      Title="{DynamicResource GoodsAtWarehouseUpdateTitle}" Height="198.81" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Style="{DynamicResource GridBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="219*"/>
             <ColumnDefinition Width="211*"/>
         </Grid.ColumnDefinitions>
         <TextBox HorizontalAlignment="Left" x:Name="quantityTB" Height="32" FontSize="18" Margin="218,75,0,0" TextWrapping="Wrap" Text="{Binding GoodsAtWarehouseQuantity,Mode=TwoWay}"  VerticalAlignment="Top" Width="202" Grid.ColumnSpan="2"/>
-        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="20,75,0,0"  FontSize="18"  TextWrapping="Wrap" Text="Количество" VerticalAlignment="Top"/>
-        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,30,0,0"  FontSize="18"  TextWrapping="Wrap" Text="ID товара на складе" VerticalAlignment="Top"/>
+        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="20,75,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource GoodsAtWarehouseUpdateQuantity}" VerticalAlignment="Top"/>
+        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,30,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource GoodsAtWarehouseUpdateProduct}" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" x:Name="idWarehouseTB" Height="32" FontSize="18" Margin="0.254,30,0,0" TextWrapping="Wrap"  Text="{Binding GoodsAtWarehouseID,Mode=TwoWay}"  VerticalAlignment="Top" Width="202" Grid.Column="1"/>
-        <Button Style="{DynamicResource ButtonStyle}" Content="Изменить данные" Command="{Binding UpdateCommand}"  HorizontalAlignment="Left"    FontSize="18" Margin="21,123,0,0" VerticalAlignment="Top" Width="399" Grid.ColumnSpan="2"/>
+        <Button Style="{DynamicResource ButtonStyle}" Content="{DynamicResource GoodsAtWarehouseUpdateEnter}" Command="{Binding UpdateCommand}"  HorizontalAlignment="Left"    FontSize="18" Margin="21,123,0,0" VerticalAlignment="Top" Width="399" Grid.ColumnSpan="2"/>
         
     </Grid>
 </Window>
