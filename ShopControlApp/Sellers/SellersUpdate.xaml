@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.Sellers"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
          xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-       Title="{DynamicResource SellersUpdateTitle}" Height="516.084" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+       Title="{DynamicResource SellersUpdateTitle}" Height="516.084" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid Style="{DynamicResource GridBackground}">
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="Loaded">

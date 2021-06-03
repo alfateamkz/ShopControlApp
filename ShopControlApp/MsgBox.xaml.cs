@@ -24,6 +24,7 @@ namespace ShopControlApp
         {
             InitializeComponent();
             this.DataContext = new MsgBoxCustom(messageCode);
+            ShowDialog();
            
         }
 

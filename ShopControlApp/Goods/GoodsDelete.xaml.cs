@@ -24,5 +24,10 @@ namespace ShopControlApp.Goods
             InitializeComponent();
             this.DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Goods);
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Goods f = new Goods(); f.Show();
+        }
     }
 }

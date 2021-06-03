@@ -23,5 +23,10 @@ namespace ShopControlApp.GoodsAtWarehouse
         {
             InitializeComponent();
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            GoodsAtWarehouse f = new GoodsAtWarehouse(); f.Show();
+        }
     }
 }

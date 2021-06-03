@@ -24,5 +24,10 @@ namespace ShopControlApp.DiscontCards
             InitializeComponent();
             this.DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.DiscontCards);
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            DiscontCards f = new DiscontCards(); f.Show();
+        }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.GoodsAtWarehouse"
          xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
-          Title="{DynamicResource GoodsAtWarehouseAddTitle}" Height="159.864" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+          Title="{DynamicResource GoodsAtWarehouseAddTitle}" Height="159.864" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadGoodsID}" />

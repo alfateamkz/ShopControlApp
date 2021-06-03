@@ -24,5 +24,10 @@ namespace ShopControlApp.Sellers
             InitializeComponent();
             this.DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Sellers);
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Sellers f = new Sellers(); f.Show();
+        }
     }
 }

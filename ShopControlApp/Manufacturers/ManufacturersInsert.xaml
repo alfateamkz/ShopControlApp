@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopControlApp.Manufacturers"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
-     Title="{DynamicResource ManufacturersAddTitle}" Height="239.915" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+     Title="{DynamicResource ManufacturersAddTitle}" Height="239.915" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid Style="{DynamicResource GridBackground}">
 
         <TextBox HorizontalAlignment="Left" x:Name="titleTB" Height="32" FontSize="18" Margin="219,25,0,0" TextWrapping="Wrap" Text="{Binding ManufacturerTitle,Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>

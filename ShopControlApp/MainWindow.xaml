@@ -10,9 +10,9 @@
         <TextBox HorizontalAlignment="Left" x:Name="userNameTB" Height="32" FontSize="18" Margin="197,23,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" 
                  Text="{Binding Username, Mode=TwoWay}" AutomationProperties.IsRequiredForForm="True"/>
         <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,23,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource authUsername}" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" x:Name="passwordTB" Height="32" FontSize="18" Margin="197,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" 
+        <TextBox   HorizontalAlignment="Left" x:Name="passwordTB" Height="32" FontSize="18" Margin="197,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" 
                  Text="{Binding Password, Mode=TwoWay}" AutomationProperties.IsRequiredForForm="True"/>
-        <TextBlock  Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,67,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource authPassword}" VerticalAlignment="Top"/>
+        <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,67,0,0"  FontSize="18"  TextWrapping="Wrap" Text="{DynamicResource authPassword}" VerticalAlignment="Top"/>
         <Button Style="{DynamicResource ButtonStyle}" Content="{DynamicResource authEnter}" HorizontalAlignment="Left" Command="{Binding AuthCommand}"   FontSize="18" Margin="21,116,0,0" VerticalAlignment="Top" Width="378"/>
 
     </Grid>

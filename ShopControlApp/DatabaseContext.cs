@@ -12,7 +12,7 @@ namespace ShopControlApp
     class DatabaseContext : DbContext
 
     {
-        public string connectionString = @"Server = DESKTOP-CSPALBL\SQL369; Database=Shop;Trusted_Connection=True;";
+        public string connectionString = $@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName={Environment.CurrentDirectory}\Shop.mdf";
 
         public DbSet<Check> Checks { get; set; }
         public DbSet<DiscontCard> DiscontCards { get; set; }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopControlApp.GoodsAtWarehouse"
         mc:Ignorable="d"  Style="{DynamicResource WindowColor}"
-       Title="{DynamicResource GoodsAtWarehouseDeleteTitle}" Height="164.789" Width="284.085" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+       Title="{DynamicResource GoodsAtWarehouseDeleteTitle}" Height="164.789" Width="284.085" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid Style="{DynamicResource GridBackground}">
         <TextBox HorizontalAlignment="Left" x:Name="idTB" Height="32" FontSize="18" Margin="177,32,0,0" TextWrapping="Wrap" Text="{Binding GoodsAtWarehouseID,Mode=TwoWay}"  VerticalAlignment="Top" Width="79"/>
         <TextBlock   Style="{DynamicResource TextColor}" HorizontalAlignment="Left" Margin="21,23,0,0"  FontSize="18"  TextWrapping="Wrap" VerticalAlignment="Top">

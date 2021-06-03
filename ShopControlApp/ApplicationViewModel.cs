@@ -169,22 +169,23 @@ namespace ShopControlApp
                         switch (table)
                         {
                             case Tables.Checks:
-                                Checks = new ObservableCollection<Check>(db.Checks);
+                                Checks = new ObservableCollection<Check>(db.Checks.Include( s => s.Seller).Include(d => d.Discont));
                                 break;
                             case Tables.DiscontCards:
                                 DiscontCards = new ObservableCollection<DiscontCard>(db.DiscontCards);
                                 break;
                             case Tables.Goods:
-                                Goods = new ObservableCollection<Product>(db.Goods);
+                                Goods = new ObservableCollection<Product>(db.Goods.Include(a => a.Manufacturer));
                                 break;
                             case Tables.GoodsAtWarehouse:
-                                GoodsAtWarehouse = new ObservableCollection<GoodsAtWarehouses>(db.GoodsAtWarehouse.Where(a => a.WarehouseID == SelectedWarehouse.ID));
+                                GoodsAtWarehouse = new ObservableCollection<GoodsAtWarehouses>(db.GoodsAtWarehouse.Where(a => a.WarehouseID == SelectedWarehouse.ID)
+                                    .Include(g => g.Goods).Include(w => w.Warehouse));
                                 break;
                             case Tables.Manufacturers:
                                 Manufacturers = new ObservableCollection<Manufacturer>(db.Manufacturers);
                                 break;
                             case Tables.Sellers:
-                                Sellers = new ObservableCollection<Seller>(db.Sellers);
+                                Sellers = new ObservableCollection<Seller>(db.Sellers.Include(p => p.Position));
                                 break;
                             case Tables.Warehouses:
                                 Warehouses = new ObservableCollection<Warehouse>(db.Warehouses);
@@ -228,7 +229,7 @@ namespace ShopControlApp
                         if (isSuccesful == false)
                         {
                             MsgBox f = new MsgBox(MessageCode.AuthError);
-                            f.ShowDialog();
+                            
 
                         }
                     }
@@ -799,11 +800,11 @@ namespace ShopControlApp
                                     DiscontCard discontCard = new DiscontCard { Percentage = 1, Sum = 0, Phone = DiscontCardPhone };
                                     db.DiscontCards.Add(discontCard);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
                                 break;
                             case Tables.Goods:
@@ -818,11 +819,11 @@ namespace ShopControlApp
                                     };
                                     db.Goods.Add(product);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
                                 break;
                             case Tables.GoodsAtWarehouse:
@@ -836,14 +837,14 @@ namespace ShopControlApp
                                     };
                                     db.GoodsAtWarehouse.Add(goods);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd);
                                     ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse f = new ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
                                 break;
                             default:
@@ -859,14 +860,12 @@ namespace ShopControlApp
                                     };
                                     db.Manufacturers.Add(manufacturer);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
-                                    ShopControlApp.Manufacturers.Manufacturers f = new ShopControlApp.Manufacturers.Manufacturers();
-                                    f.DataContext = this;
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd);
+
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); 
                                 }
                                 break;
                             case Tables.Sellers:
@@ -885,14 +884,11 @@ namespace ShopControlApp
                                     };
                                     db.Sellers.Add(seller);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
-                                    ShopControlApp.Sellers.Sellers f = new Sellers.Sellers();
-                                    f.DataContext = this;
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd);
                                 }
                                 break;
                             case Tables.Warehouses:
@@ -901,14 +897,11 @@ namespace ShopControlApp
                                     Warehouse warehouse = new Warehouse { Address = WarehouseAddress };
                                     db.Warehouses.Add(warehouse);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); msgBox.ShowDialog();
-                                    ShopControlApp.Warehouses.Warehouses f = new Warehouses.Warehouses();
-                                    f.DataContext = this;
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulAdd); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
                                 break;
                         }
@@ -938,12 +931,11 @@ namespace ShopControlApp
                                     DiscontCard discontCard = db.DiscontCards.Where(a => a.ID == DiscontCardID).First();
                                     db.DiscontCards.Remove(discontCard);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
-                                    ShopControlApp.DiscontCards.DiscontCards f = new DiscontCards.DiscontCards(); f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete);
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete);
                                 }
                                 break;
                             case Tables.Goods:
@@ -952,12 +944,11 @@ namespace ShopControlApp
                                     Product product = db.Goods.Where(a => a.ID == GoodsID).First();
                                     db.Goods.Remove(product);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
-                                    ShopControlApp.Goods.Goods f = new Goods.Goods(); f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete);
                                 }
                                 break;
                             case Tables.GoodsAtWarehouse:
@@ -966,14 +957,14 @@ namespace ShopControlApp
                                     GoodsAtWarehouses product = db.GoodsAtWarehouse.Where(a => a.ID == GoodsAtWarehouseID).First();
                                     db.GoodsAtWarehouse.Remove(product);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete);
                                     ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse f = new GoodsAtWarehouse.GoodsAtWarehouse();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); 
                                 }
                                 break;
                             case Tables.Manufacturers:
@@ -982,13 +973,11 @@ namespace ShopControlApp
                                     Manufacturer manufacturer = db.Manufacturers.Where(a => a.ID == ManufacturerID).First();
                                     db.Manufacturers.Remove(manufacturer);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
-                                    ShopControlApp.Manufacturers.Manufacturers f = new Manufacturers.Manufacturers();
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); 
                                 }
                                 break;
                             case Tables.Sellers:
@@ -997,13 +986,11 @@ namespace ShopControlApp
                                     Seller seller = db.Sellers.Where(a => a.ID == SellerID).First();
                                     db.Sellers.Remove(seller);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
-                                    ShopControlApp.Sellers.Sellers f = new Sellers.Sellers();
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete);
                                 }
                                 break;
                             case Tables.Warehouses:
@@ -1012,13 +999,11 @@ namespace ShopControlApp
                                     Warehouse warehouse = db.Warehouses.Where(a => a.ID == WarehouseID).First();
                                     db.Warehouses.Remove(warehouse);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); msgBox.ShowDialog();
-                                    ShopControlApp.Warehouses.Warehouses f = new Warehouses.Warehouses();
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulDelete); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.UnsuccessfulDelete);
                                 }
                                 break;
                         }
@@ -1049,13 +1034,12 @@ namespace ShopControlApp
                                     {
                                         db.DiscontCards.Update(card);
                                         db.SaveChanges();
-                                        MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
-                                        ShopControlApp.DiscontCards.DiscontCards f = new DiscontCards.DiscontCards(); f.Show();
+                                        MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate);
                                     }
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
                                 break;
                             case Tables.Goods:
@@ -1069,12 +1053,11 @@ namespace ShopControlApp
 
                                     db.Goods.Update(product);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
-                                    ShopControlApp.Goods.Goods f = new Goods.Goods(); f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate);
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
                                 break;
                             case Tables.GoodsAtWarehouse:
@@ -1085,14 +1068,14 @@ namespace ShopControlApp
                                     goods.Quantity = GoodsAtWarehouseQuantity;
                                     db.GoodsAtWarehouse.Update(goods);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate);
                                     ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse f = new ShopControlApp.GoodsAtWarehouse.GoodsAtWarehouse();
                                     f.DataContext = this;
                                     f.Show();
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
                                 break;
                             case Tables.Manufacturers:
@@ -1106,13 +1089,11 @@ namespace ShopControlApp
                                     };
                                     db.Manufacturers.Update(manufacturer);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
-                                    ShopControlApp.Manufacturers.Manufacturers f = new ShopControlApp.Manufacturers.Manufacturers();
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate);
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
 
                                 break;
@@ -1130,14 +1111,11 @@ namespace ShopControlApp
                                     seller.PositionID = SelectedPosition.ID;
                                     db.Sellers.Update(seller);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
-                                    ShopControlApp.Sellers.Sellers f = new Sellers.Sellers();
-                                    f.DataContext = this;
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError);
                                 }
                                 break;
                             case Tables.Warehouses:
@@ -1147,14 +1125,11 @@ namespace ShopControlApp
                                     warehouse.Address = WarehouseAddress;
                                     db.Warehouses.Update(warehouse);
                                     db.SaveChanges();
-                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); msgBox.ShowDialog();
-                                    ShopControlApp.Warehouses.Warehouses f = new Warehouses.Warehouses();
-                                    f.DataContext = this;
-                                    f.Show();
+                                    MsgBox msgBox = new MsgBox(MessageCode.SuccessfulUpdate); 
                                 }
                                 catch
                                 {
-                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); msgBox.ShowDialog();
+                                    MsgBox msgBox = new MsgBox(MessageCode.NullError); 
                                 }
                                 break;
                         }
@@ -1416,11 +1391,11 @@ namespace ShopControlApp
                             {
                                 if (SelectedBasketItemQuantity > SelectedGoodsAtWarehouse.Quantity)
                                 {
-                                    MsgBox f = new MsgBox(MessageCode.NotEnoughAtWarehouse); f.ShowDialog();
+                                    MsgBox f = new MsgBox(MessageCode.NotEnoughAtWarehouse); 
                                 }
                                 else if (SelectedBasketItemQuantity <= 0)
                                 {
-                                    MsgBox f = new MsgBox(MessageCode.WrongBasketQuantity); f.ShowDialog();
+                                    MsgBox f = new MsgBox(MessageCode.WrongBasketQuantity);
                                 }
                                 else
                                 {
@@ -1434,7 +1409,7 @@ namespace ShopControlApp
                         catch 
                         {
                            
-                          MsgBox f = new MsgBox(MessageCode.NullError); f.ShowDialog();
+                          MsgBox f = new MsgBox(MessageCode.NullError); 
                         }
                     }
                 }));
@@ -1478,12 +1453,12 @@ namespace ShopControlApp
                                 });
                             }
                             db.SaveChanges();
-                            MsgBox f = new MsgBox(MessageCode.CheckoutEnd); f.ShowDialog();
+                            MsgBox f = new MsgBox(MessageCode.CheckoutEnd); 
 
                         }
                         catch
                         {
-                            MsgBox f = new MsgBox(MessageCode.NullError); f.ShowDialog();
+                            MsgBox f = new MsgBox(MessageCode.NullError);
                         }
                     }
                 }));
@@ -1496,7 +1471,7 @@ namespace ShopControlApp
         /// Код смены стилей находится в Settings.xaml.cs
         ///
 
-        public enum FilterAction
+        public enum FilterAction // условие фильтрации/поиска
         {
             ByDate = 1,
             BySum = 2,
@@ -1512,13 +1487,13 @@ namespace ShopControlApp
             ByPosition = 12,
             ByTitle = 13,
             ByAddress = 14
-        } // условие фильтрации/поиска
-        public enum FilterParameter
+        } 
+        public enum FilterParameter // возрастание/убывание
         {
             Acs = 1,
             Decs = 2,
             Null = 3
-        } // возрастание/убывание
+        } 
         
 
         public enum Lang
@@ -1545,10 +1520,12 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Checks = new ObservableCollection<Check>(db.Checks.OrderBy(i => i.SellDate));
+                                                Checks = new ObservableCollection<Check>(db.Checks.OrderBy(i => i.SellDate)
+                                                    .Include(s => s.Seller).Include(d => d.Discont));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Checks = new ObservableCollection<Check>(db.Checks.OrderByDescending(i => i.SellDate));
+                                                Checks = new ObservableCollection<Check>(db.Checks.OrderByDescending(i => i.SellDate)
+                                                    .Include(s => s.Seller).Include(d => d.Discont));
                                                 break;
                                         }
                                         break;
@@ -1588,10 +1565,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Goods = new ObservableCollection<Product>(db.Goods.OrderBy(i => i.Title));
+                                                Goods = new ObservableCollection<Product>(db.Goods.OrderBy(i => i.Title).Include(a => a.Manufacturer));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Goods = new ObservableCollection<Product>(db.Goods.OrderByDescending(i => i.Title));
+                                                Goods = new ObservableCollection<Product>(db.Goods.OrderByDescending(i => i.Title).Include(a => a.Manufacturer));
                                                 break;
                                         }
                                         break;
@@ -1599,10 +1576,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Goods = new ObservableCollection<Product>(db.Goods.OrderBy(i => i.Price));
+                                                Goods = new ObservableCollection<Product>(db.Goods.OrderBy(i => i.Price).Include(a => a.Manufacturer));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Goods = new ObservableCollection<Product>(db.Goods.OrderByDescending(i => i.Price));
+                                                Goods = new ObservableCollection<Product>(db.Goods.OrderByDescending(i => i.Price).Include(a => a.Manufacturer));
                                                 break;
                                         }
                                         break;
@@ -1610,10 +1587,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Goods = new ObservableCollection<Product>(db.Goods.OrderBy(i => i.Warranty));
+                                                Goods = new ObservableCollection<Product>(db.Goods.OrderBy(i => i.Warranty).Include(a => a.Manufacturer));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Goods = new ObservableCollection<Product>(db.Goods.OrderByDescending(i => i.Warranty));
+                                                Goods = new ObservableCollection<Product>(db.Goods.OrderByDescending(i => i.Warranty).Include(a => a.Manufacturer));
                                                 break;
                                         }
                                         break;
@@ -1653,10 +1630,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Birthday));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Birthday).Include(p => p.Position));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Birthday));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Birthday).Include(p => p.Position));
                                                 break;
                                         }
                                         break;
@@ -1664,10 +1641,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.EmploymentDay));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.EmploymentDay).Include(p => p.Position));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.EmploymentDay));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.EmploymentDay).Include(p => p.Position));
                                                 break;
                                         }
                                         break;
@@ -1675,10 +1652,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Name));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Name).Include(p => p.Position));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Name));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Name).Include(p => p.Position));
                                                 break;
                                         }
                                         break;
@@ -1686,10 +1663,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Surname));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Surname).Include(p => p.Position));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Surname));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Surname).Include(p => p.Position));
                                                 break;
                                         }
                                         break;
@@ -1697,10 +1674,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Patronymic));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Patronymic).Include(p => p.Position));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Patronymic));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Patronymic).Include(p => p.Position));
                                                 break;
                                         }
                                         break;
@@ -1708,10 +1685,10 @@ namespace ShopControlApp
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Position));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderBy(i => i.Position).Include(p => p.Position));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Position));
+                                                Sellers = new ObservableCollection<Seller>(db.Sellers.OrderByDescending(i => i.Position).Include(p => p.Position));
                                                 break;
                                         }
                                         break;
@@ -1757,7 +1734,8 @@ namespace ShopControlApp
                                 switch (filterAction)
                                 {
                                     case FilterAction.ByDate: 
-                                     Checks = new ObservableCollection<Check>(db.Checks.Where(i => i.SellDate.Date == CheckDate.Date));
+                                     Checks = new ObservableCollection<Check>(db.Checks.Where(i => i.SellDate.Date == CheckDate.Date)
+                                         .Include(s => s.Seller).Include(d => d.Discont));
                                     break;
                                 }
                                 break;
@@ -1792,21 +1770,21 @@ namespace ShopControlApp
                                 switch (filterAction)
                                 {
                                     case FilterAction.ByTitle:
-                                        Goods = new ObservableCollection<Product>(db.Goods.Where(i => i.Title == GoodsTitle));
+                                        Goods = new ObservableCollection<Product>(db.Goods.Where(i => i.Title == GoodsTitle).Include(a => a.Manufacturer));
                                         break;
                                     case FilterAction.ByPrice:
                                         switch (filterParameter)
                                         {
                                             case FilterParameter.Acs:
-                                                Goods = new ObservableCollection<Product>(db.Goods.Where(i => i.Price >= GoodsPrice));
+                                                Goods = new ObservableCollection<Product>(db.Goods.Where(i => i.Price >= GoodsPrice).Include(a => a.Manufacturer));
                                                 break;
                                             case FilterParameter.Decs:
-                                                Goods = new ObservableCollection<Product>(db.Goods.Where(i => i.Price <= GoodsPrice));
+                                                Goods = new ObservableCollection<Product>(db.Goods.Where(i => i.Price <= GoodsPrice).Include(a => a.Manufacturer));
                                                 break;
                                         }
                                         break;
                                     case FilterAction.ByWarranty:
-                                         Goods = new ObservableCollection<Product>(db.Goods.Where(i => i.Warranty == GoodsWarranty));
+                                         Goods = new ObservableCollection<Product>(db.Goods.Where(i => i.Warranty == GoodsWarranty).Include(a => a.Manufacturer));
                                         break;
                                 }
                                 break;
@@ -1825,22 +1803,22 @@ namespace ShopControlApp
                                 switch (filterAction)
                                 {
                                     case FilterAction.ByBirthDay:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Birthday.Date == SellerBirthday.Date));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Birthday.Date == SellerBirthday.Date).Include(p => p.Position));
                                         break;
                                     case FilterAction.ByEmploymentDate:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.EmploymentDay.Date == SellerEmploymentDay.Date));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.EmploymentDay.Date == SellerEmploymentDay.Date).Include(p => p.Position));
                                         break;
                                     case FilterAction.ByName:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Name == SellerName));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Name == SellerName).Include(p => p.Position));
                                         break;
                                     case FilterAction.BySurname:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Surname == SellerSurname));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Surname == SellerSurname).Include(p => p.Position));
                                         break;
                                     case FilterAction.ByPatronymic:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Patronymic == SellerPatronymic));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Patronymic == SellerPatronymic).Include(p => p.Position));
                                         break;
                                     case FilterAction.ByPosition:
-                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Position.Title == SellerPosition));
+                                        Sellers = new ObservableCollection<Seller>(db.Sellers.Where(i => i.Position.Title == SellerPosition).Include(p => p.Position));
                                         break;
                                 }
                                 break;

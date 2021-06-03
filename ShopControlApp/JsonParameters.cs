@@ -20,18 +20,21 @@ namespace ShopControlApp
         {
             ResourceDictionary dictionary;
             Uri uri;
+       
             using (FileStream fs = new FileStream("config.json", FileMode.OpenOrCreate))
             {
                 JsonParameters = await JsonSerializer.DeserializeAsync<JsonParams>(fs);
             }
             if (JsonParameters.Language == "RU-ru")
             {
+             
                  uri = new Uri(@"Languages\Russian.xaml", UriKind.Relative);
                 dictionary = Application.LoadComponent(uri) as ResourceDictionary;
                 Application.Current.Resources.MergedDictionaries.Add(dictionary);
             }
             else if (JsonParameters.Language == "EN-en")
             {
+
                 uri = new Uri(@"Languages\English.xaml", UriKind.Relative);
                 dictionary = Application.LoadComponent(uri) as ResourceDictionary;
                 Application.Current.Resources.MergedDictionaries.Add(dictionary);

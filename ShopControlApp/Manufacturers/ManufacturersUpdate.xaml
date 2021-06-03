@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShopControlApp.Manufacturers"
         mc:Ignorable="d" Style="{DynamicResource WindowColor}"
           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-        Title="{DynamicResource ManufacturersUpdateTitle}" Height="283.915" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="{DynamicResource ManufacturersUpdateTitle}" Height="283.915" Width="436.197"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadTable}"/>

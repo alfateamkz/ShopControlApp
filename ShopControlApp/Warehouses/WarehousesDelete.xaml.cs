@@ -24,5 +24,10 @@ namespace ShopControlApp.Warehouses
             InitializeComponent();
             this.DataContext = new ApplicationViewModel(ApplicationViewModel.Tables.Warehouses);
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Warehouses f = new Warehouses(); f.Show();
+        }
     }
 }

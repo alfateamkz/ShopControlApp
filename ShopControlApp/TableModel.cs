@@ -51,7 +51,7 @@ namespace ShopControlApp
 
         public override string ToString()
         {
-            return ID.ToString() + " "+Phone;
+            return ID.ToString() + " телефон : "+Phone;
         }
     }
     public class Product
@@ -61,6 +61,7 @@ namespace ShopControlApp
         [Required]
         [ConcurrencyCheck]
         public int ManufacturerID { get; set; }
+        
         public Manufacturer Manufacturer { get; set; }
         [Required]
         [ConcurrencyCheck]
